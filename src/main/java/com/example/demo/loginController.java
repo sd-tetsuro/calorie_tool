@@ -36,7 +36,7 @@ public class loginController {
 		return mv;
 	}
 
-			mv.setViewName("main");
+			mv.setViewName("kcalCal");
 			return mv;
 	}
 
