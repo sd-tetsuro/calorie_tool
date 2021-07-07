@@ -2,9 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>カロリー計算ツール</title>
+
 </head>
 <body>
+<h1>メニュー登録（カロリー計算）</h1><a href="/kasutamu">カスタム入力</a>
+
+
+	<table border="1">
+	<tr>
+		<th>メニュー</th><th>グラム</th><th>カロリー</th>
+	</tr>
+	<tr th:each="food:${menu}">
+		<td th:text="${food.name}"></td>
+		<td th:text="${menu.gram}"></td>
+		<td th:text="${food.kcal}"></td>
+	</tr>
+	</table>
 
 </body>
 </html>

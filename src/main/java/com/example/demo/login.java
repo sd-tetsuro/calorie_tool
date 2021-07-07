@@ -16,7 +16,7 @@ public class login {
 		return "log";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/log", method = RequestMethod.POST)
 	public ModelAndView doLogin(
 			@RequestParam("email") String email,
 			@RequestParam("password") String password,
