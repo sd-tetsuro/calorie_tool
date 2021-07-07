@@ -7,10 +7,16 @@
 <body>
 
 <form action="/log" method="post">
-	<input type="text" name="email" placeholder="メールアドレス">
-	<input type="text" name="password" placeholder="パスワード">
+<span th:text="${message}" style="color:red"></span>
+	<br>
+	メールアドレス<input type="text" name="email" placeholder="メールアドレス">
+	<br>
+	パスワード<input type="text" name="password" placeholder="パスワード">
+	<br><br>
 	<input type="submit" value="ログイン">
 	<br>
+	<a href="/accountPage">アカウント作成へ</a>
+
 </form>
 
 </body>

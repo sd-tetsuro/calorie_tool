@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>本日のカロリー</title>
+
+</head>
+<body>
+	<h2>本日のカロリー</h2>
+
+	<table border="1">
+	<tr>
+		<th>メニュー</th><th>カロリー</th><th>時間</th><td></td>
+	</tr>
+		<td th:text="${menu}"></td>
+		<td th:text="${kcal}"></td>
+		<td th:text="${time}"></td>
+		<td><input type="submit" value="編集"></td>
+	</tr>
+	</table>
+	　　　　　　　　　　　　　　　　Total<span th:text="${total}">kcal</span>
+
+<a href="/main">メニュー登録へ</a>　　　<a href="/logout">ログアウト</a>
+</body>
+</html>
