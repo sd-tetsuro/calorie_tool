@@ -6,7 +6,9 @@
 
 </head>
 <body>
-<h1>メニュー登録（カロリー計算）</h1><a href="/kasutamu">カスタム入力</a>
+<h1>メニュー登録（カロリー計算）
+
+</h1><a href="/kasutamu">カスタム入力</a>
 
 
 	<table border="1">
@@ -19,6 +21,13 @@
 		<td th:text="${food.kcal}"></td>
 	</tr>
 	</table>
+	<td><input type="text" name="name"></td>
+
+	<h2><a href="/kokumotu">穀物</a>　　　
+	<a href="/niku">肉</a>　　　
+	<a href="/sakana">魚</a>　　　
+	<a href="/tyoumiryou">調味料</a></h2>
+
 
 </body>
 </html>
