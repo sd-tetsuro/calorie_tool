@@ -7,5 +7,24 @@
 <body>
 <h1>確認画面</h1>
 
+<form action="/myMenu">
+<table border="1">
+	<tr>
+		<th>メニュー</th>
+			<td th:text="${menu}"></td>
+		<td th:text="${kcal}">kcal</td>
+		<td><input type="text" name="time" placeholder="時刻を入力"></td>
+	<td><input type="text" name="day" placeholder="日付を入力"></td>
+	</tr>
+	<tr>
+
+
+</tr>
+
+</table>
+<input type="submit" value="確定">
+</form>
+<a href="/custom">戻る</a>
+
 </body>
 </html>

@@ -6,6 +6,18 @@
 </head>
 <body>
 <h1>検索結果</h1>
+
+“<span th:text="${name}"></span>”の検索結果
+
+	<table border="1">
+	<tr>
+		<th>検索一覧</th>
+		</tr>
+	<tr th:each="food:${menu}">
+	<td th:text="${food.name}"></td>
+	</tr>
+</table>
+
 <a href="/kcalCal">メニュー登録へ</a>
 </body>
 </html>

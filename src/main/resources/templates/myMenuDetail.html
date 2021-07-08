@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>マイメニュー詳細画面</title>
+</head>
+<body>
+<h1>メニュー詳細</h1>
+
+	<h1><td th:text="${menu}"></td></h1>
+
+<table border="1">
+	<tr th:each="food:${menu}">
+	<td th:text="${food.name}"></td>
+	<td th:text="${food.grams}"></td>
+	<td th:text="${food.kcal}"></td>
+	</tr>
+</table>
+
+<input type="submit" value="EAT!">
+
+<a href="/myMenu">戻る</a>
+
+</body>
+</html>

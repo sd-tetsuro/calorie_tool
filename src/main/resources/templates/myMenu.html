@@ -6,12 +6,14 @@
 </head>
 <body>
 <h1>マイメニュー</h1>
+<form action="/confirm">
 <table border="1">
 	<tr th:each="food:${menu}">
 		<td th:text="${food.name}"></td>
 		<td><input type="submit" value="EAT!"></td>
 	</tr>
 	</table>
+	</form>
 <a href="/kcalCal">メニュー登録へ</a>
 </body>
 </html>
