@@ -17,8 +17,8 @@ public class MyMenuCoentroller {
 
 		return mv;
 	}
-//
-	@RequestMapping(value = "dish/confirm", method = RequestMethod.POST)
+//マイメニュー（EATボタン押下）
+	@RequestMapping(value = "confirm", method = RequestMethod.POST)
 	public ModelAndView confirm(
 			ModelAndView mv) {
 

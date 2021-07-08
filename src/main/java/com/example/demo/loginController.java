@@ -36,8 +36,26 @@ public class loginController {
 		return mv;
 	}
 
-			mv.setViewName("main");
+			mv.setViewName("kcalCal");
 			return mv;
 	}
+
+	//マイメニュー詳細画面へ移動
+		@RequestMapping("/accountPage")
+		public ModelAndView MyPage(
+				ModelAndView mv) {
+			mv.setViewName("accountPage");
+
+			return mv;
+		}
+
+		//マイメニュー（EATボタン押下）
+		@RequestMapping(value = "/regi", method = RequestMethod.POST)
+		public ModelAndView confirm(
+				ModelAndView mv) {
+
+				mv.setViewName("login");
+				return mv;
+		}
 
 }
