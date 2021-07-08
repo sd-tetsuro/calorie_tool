@@ -8,9 +8,9 @@
 <body>
 <h1>メニュー登録（カロリー計算）
 
-　　　　　　　　　　</h1><a href="/kasutamu">カスタム入力</a>
+</h1><a href="/custom">カスタム入力</a>
 
-<form action="/kcalCal">
+<form action="/myMenu">
 	<table border="1">
 	<tr>
 		<th>メニュー</th><th>量</th><th>カロリー</th>
@@ -21,7 +21,7 @@
 		<td th:text="${food.kcal}"></td>
 	</tr>
 	</table>
-		　　　　　　　　　　<input type="text" name="menu">
+		<input type="text" name="menu">
 		<input type="submit" value="登録">
 </form>
 
@@ -30,11 +30,11 @@
 	<a href="/niku">肉</a>
 	<a href="/sakana">魚</a>
 	<a href="/tyoumiryou">調味料</a></h2>
-
+<form action="/sarch" method="post">
 		<input type="text" name="food">
 		<input type="submit" value="検索">
 		<br>
-
+</form>
 		<table border="1">
 		<tr>
 		<th>食材</th><td></td><th>量</th><td></td><th>カロリー</th>
@@ -45,6 +45,9 @@
 		</tr>
 		</table>
 <a href="/myPage">マイページへ</a><a href="/myMenu">マイメニューへ</a>
+
+<br>
+<a href="/login">ログアウト</a>
 
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>custom</title>
+</head>
+<body>
+<h1>カスタム入力</h1>
+
+<table border="1">
+	<tr>
+		<th>メニュー</th><th>カロリー</th>
+	</tr>
+	<tr>
+<td><input type="text" name="menu" placeholder="メニュー"></td>
+<td><input type="text" name="kcal" placeholder="カロリー">kcal</td>
+</tr>
+
+</table>
+<br>
+<form action="/custom/regi" method="post">
+<input type="submit" value="登録">
+</form>
+<form action="/custom/confirm" method="post">
+<input type="submit" value="EAT!">
+</form>
+<br>
+<a href="/kcalCal">メニュー登録へ</a>
+</body>
+</html>

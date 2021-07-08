@@ -2,9 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>マイメニュー画面</title>
 </head>
 <body>
-
+<h1>マイメニュー</h1>
+<table border="1">
+	<tr th:each="food:${menu}">
+		<td th:text="${food.name}"></td>
+		<td><input type="submit" value="EAT!"></td>
+	</tr>
+	</table>
+<a href="/kcalCal">メニュー登録へ</a>
 </body>
 </html>
