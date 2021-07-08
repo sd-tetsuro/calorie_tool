@@ -6,52 +6,66 @@
 
 </head>
 <body>
-<h1>メニュー登録（カロリー計算）
+	<h1>
+		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${login}"></span>さん。
 
-<br>
+	</h1>
+	<a href="/custom">カスタム入力</a>
 
-こんにちは、<span th:text="${login}"></span>さん。
-
-</h1><a href="/custom">カスタム入力</a>
-
-<form action="/myMenu">
-	<table border="1">
-	<tr>
-		<th>メニュー</th><th>量</th><th>カロリー</th>
-	</tr>
-	<!--<tr th:each="food:${menu}">-->
-		<!-- <td th:text="${food.name}"></td> -->
-		<!--  <td th:text="${food.gram}"></td>-->
-		<!-- <td th:text="${food.kcal}"></td> -->
-
-	</table>
-		<input type="text" name="menu">
-		<input type="submit" value="登録">
-</form>
-
-
-	<h2><a href="/kokumotu">穀物</a>
-	<a href="/niku">肉</a>
-	<a href="/sakana">魚</a>
-	<a href="/tyoumiryou">調味料</a></h2>
-<form action="/sarch" method="post">
-		<input type="text" name="food">
-		<input type="submit" value="検索">
-		<br>
-</form>
+	<form action="/myMenu">
 		<table border="1">
-		<tr>
-		<th>食材</th><td></td><th>量</th><td></td><th>カロリー</th>
-		</tr>
-		<tr>
-	<td></td><td>×</td><td><input type="text" name="food">g</td><td>=</td>
-<td></td>
-		</tr>
-		</table>
-<a href="/myPage">マイページへ</a><a href="/myMenu">マイメニューへ</a>
+			<tr>
+				<th>メニュー</th>
+				<th>量</th>
+				<th>カロリー</th>
+			</tr>
+			<!--<tr th:each="food:${menu}">-->
+			<!-- <td th:text="${food.name}"></td> -->
+			<!--  <td th:text="${food.gram}"></td>-->
+			<!-- <td th:text="${food.kcal}"></td> -->
 
-<br>
-<a href="/login">ログアウト</a>
+		</table>
+		<input type="text" name="menu"> <input type="submit"
+			value="登録">
+	</form>
+
+	<div>
+		<h2>
+			<a href="/kokumotu">穀物</a> <a href="/niku">肉</a> <a href="/sakana">魚</a>
+			<a href="/imo">芋&でんぷん</a> <a href="/mame">豆&ナッツ</a> <a href="/yasai">野菜</a>
+		</h2>
+	</div>
+	<span>
+		<h2>
+			<a href="/kazitsu">果実</a> <a href="/kinoko">きのこ</a> <a href="/kaisou">海藻</a>
+			<a href="/tamago">卵&乳製品</a> <a href="/tyoumiryou">調味料</a>
+		</h2>
+	</span>
+	<form action="/sarch" method="post">
+		<input type="text" name="food"> <input type="submit"
+			value="検索"> <br>
+	</form>
+	<table border="1">
+		<tr>
+			<th>食材</th>
+			<td></td>
+			<th>量</th>
+			<td></td>
+			<th>カロリー</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>×</td>
+			<td><input type="text" name="food">g</td>
+			<td>=</td>
+			<td></td>
+		</tr>
+	</table>
+	<a href="/myPage">マイページへ</a>
+	<a href="/myMenu">マイメニューへ</a>
+
+	<br>
+	<a href="/login">ログアウト</a>
 
 </body>
 </html>
