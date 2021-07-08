@@ -31,14 +31,14 @@
 
 	<div>
 		<h2>
-			<a href="/kokumotu">穀物</a> <a href="/niku">肉</a> <a href="/sakana">魚</a>
-			<a href="/imo">芋&でんぷん</a> <a href="/mame">豆&ナッツ</a> <a href="/yasai">野菜</a>
+			<a href="/findByCode" th:name="1">穀物</a> <a href="/findByCode">肉</a> <a href="/findByCode">魚</a>
+			<a href="/findByCode">芋&でんぷん</a> <a href="/findByCode">豆&ナッツ</a> <a href="/findByCode">野菜</a>
 		</h2>
 	</div>
 	<span>
 		<h2>
-			<a href="/kazitsu">果実</a> <a href="/kinoko">きのこ</a> <a href="/kaisou">海藻</a>
-			<a href="/tamago">卵&乳製品</a> <a href="/tyoumiryou">調味料</a>
+			<a href="/findByCode">果実</a> <a href="/findByCode">きのこ</a> <a href="/findByCode">海藻</a>
+			<a href="/findByCode">卵&乳製品</a> <a href="/findByCode">調味料</a>
 		</h2>
 	</span>
 	<form action="/sarch" method="post">
@@ -54,9 +54,14 @@
 			<th>カロリー</th>
 		</tr>
 		<tr>
-			<td></td>
+			<td><select name="food" id="food">
+					<option value="" th:selected>---</option>
+				<option th:each="food:${list}" th:value="${food.uname}" th:text="${food.uname}"
+				th:selected="${food.uname}"></option>
+				</select>
+				</td>
 			<td>×</td>
-			<td><input type="text" name="food">g</td>
+			<td><input type="text" name="foodGram">g</td>
 			<td>=</td>
 			<td></td>
 		</tr>

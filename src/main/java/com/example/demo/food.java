@@ -22,6 +22,11 @@ public class food {
 
 	}
 
+	public food(Integer categorycode) {
+		super();
+		this.categorycode = categorycode;
+	}
+
 	public food(Integer code, Integer categorycode, String name, String uname, Integer kcal, Integer grams) {
 		super();
 		this.code = code;

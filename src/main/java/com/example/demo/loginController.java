@@ -50,7 +50,7 @@ public class loginController {
 
 				session.setAttribute("login", name);
 				mv.addObject("login", name);
-				mv.setViewName("kcalCal");
+				mv.setViewName("myPage");
 
 			} else {
 				mv.addObject("message", "ユーザIDとパスワードが一致しませんでした。");

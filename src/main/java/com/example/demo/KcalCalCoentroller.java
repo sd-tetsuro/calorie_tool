@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,6 +16,7 @@ public class KcalCalCoentroller {
 	private foodRepository foodRepository;
 
 	//メニュー登録（カロリー計算へ移動）
+	//全件表示
 	@RequestMapping("/kcalCal")
 	public ModelAndView kcalCal(
 			ModelAndView mv) {
@@ -26,6 +28,23 @@ public class KcalCalCoentroller {
 
 		return mv;
 	}
+
+	//
+	@RequestMapping("/findByCode")
+	public ModelAndView foodsByCode(
+			ModelAndView mv,
+			@RequestParam("th:name") int categorycode
+
+	) {
+		List<food> food = foodRepository.findByCategorycode(categorycode);
+		mv.addObject("list", food);
+
+
+
+		mv.setViewName("kcalCal");
+		return mv;
+	}
+
 
 	//マイメニューへ移動
 	@RequestMapping("/myMenu")
