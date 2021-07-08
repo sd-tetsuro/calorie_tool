@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>アカウントページ</title>
 </head>
 <body>
 アカウント作成画面
-<form action="regi" method="post">
+
+<div th:if="${message != null}"><span th:text="${message}"></span></div>
+
+<form action="/newUser" method="post">
 <br>
 名前	<input type="text" name="name">
-メールアドレス<input type="text" name="email">
-パスワード<input type="text" name="password">
 <br>
-<input type="submit" name="regi">
+メールアドレス<input type="text" name="email">
+<br>
+パスワード<input type="password" name="password">
+<br>
+<input type="submit" name="touroku">
 </form>
 <br>
 <a href="/login">ログイン画面に戻る</a>

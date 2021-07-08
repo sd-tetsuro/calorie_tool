@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>カロリー計算ツール</title>
@@ -8,6 +8,10 @@
 <body>
 <h1>メニュー登録（カロリー計算）
 
+<br>
+
+こんにちは、<span th:text="${login}"></span>さん。
+
 </h1><a href="/custom">カスタム入力</a>
 
 <form action="/myMenu">
@@ -15,11 +19,11 @@
 	<tr>
 		<th>メニュー</th><th>量</th><th>カロリー</th>
 	</tr>
-	<tr th:each="food:${menu}">
-		<td th:text="${food.name}"></td>
-		<td th:text="${food.gram}"></td>
-		<td th:text="${food.kcal}"></td>
-	</tr>
+	<!--<tr th:each="food:${menu}">-->
+		<!-- <td th:text="${food.name}"></td> -->
+		<!--  <td th:text="${food.gram}"></td>-->
+		<!-- <td th:text="${food.kcal}"></td> -->
+
 	</table>
 		<input type="text" name="menu">
 		<input type="submit" value="登録">
