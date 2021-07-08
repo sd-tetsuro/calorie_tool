@@ -18,57 +18,29 @@ public class user {
 	@Column(name="name")
 	private String name;
 
-	@Column(name="address")
-	private String address;
-
 	@Column(name="email")
 	private String email;
 
-	public user(Integer code, String name, String address, String email) {
-		this(name, address, email);
-		this.code = code;
-	}
-
-	public user(String name, String address,  String email) {
-		super();
-		this.name = name;
-		this.address = address;
-		this.email = email;
-	}
-
+	@Column(name="password")
+	private String password;
 	public user() {
-		super();
+
 	}
 
-	public Integer getCode() {
-		return code;
-	}
-
-	public void setCode(Integer code) {
+	public user(Integer code, String name,  String email,String password) {
 		this.code = code;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
 		this.email = email;
+		this.password = password;
+
 	}
+
+	public user(String name, String email,  String password) {
+
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
+
+
 }

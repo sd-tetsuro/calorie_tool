@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,5 +58,23 @@ public class loginController {
 				mv.setViewName("login");
 				return mv;
 		}
+		//アカウント新規作成
+		@PostMapping("/newUser")
+		public ModelAndView usersadd(
+				ModelAndView mv,
+				@RequestParam(name = "name") String name,
+				@RequestParam(name = "email") String email,
+				@RequestParam(name = "password") String pass) {
+
+			//登録するユーザのエンティティのインスタンスを生成
+			User user = new User(name, email, pass);
+
+			//UserエンティティをUserテーブルに登録
+
+			UserRepository.saveAndFlush(user);
+
+			return users(mv);
+		}
+
 
 }
