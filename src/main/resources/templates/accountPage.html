@@ -6,8 +6,7 @@
 </head>
 <body>
 アカウント作成画面
-
-<div th:if="${message != null}"><span th:text="${message}"></span></div>
+<div th:if="${message != null}"><span th:text="${message}" style="color:red"></span></div>
 
 <form action="/newUser" method="post">
 <br>
@@ -17,7 +16,7 @@
 <br>
 パスワード<input type="password" name="password">
 <br>
-<input type="submit" name="touroku">
+<input type="submit" value="登録">
 </form>
 <br>
 <a href="/login">ログイン画面に戻る</a>

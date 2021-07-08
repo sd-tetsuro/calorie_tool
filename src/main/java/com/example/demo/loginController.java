@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class loginController {
 
 	@Autowired
 	private HttpSession session;
+
+	@Autowired
+	userRepository userRepository;
 
 	@RequestMapping("/login")
 	public String log() {
@@ -31,21 +36,22 @@ public class loginController {
 			mv.addObject("message", "未入力の項目があります。");
 			mv.setViewName("log");
 		} else {
-			user user = (user)session.getAttribute("user");
 
-			String _email = user.getEmail();
-			String _password = user.getPassword();
+			List<user> users = userRepository.findByEmailAndPassword(email,password);
+	if (users.size() > 0) {
+				// メールアドレスとパスワードが存在したらログインOK
+				// リストの1件目をログインユーザとして取得する
+				user user = users.get(0);
 
-			if (email.equals(_email) && password.equals(_password)) {
+			session.setAttribute("user", user);
+
 				//ログイン成功
 				String name = user.getName();
 
 				session.setAttribute("login", name);
-
 				mv.addObject("login", name);
-				mv.addObject("user", user);
-
 				mv.setViewName("kcalCal");
+
 			} else {
 				mv.addObject("message", "ユーザIDとパスワードが一致しませんでした。");
 				mv.setViewName("log");
@@ -77,7 +83,8 @@ public class loginController {
 				//ユーザーインスタンスの生成
 				user user = new user(name, email, password);
 
-				session.setAttribute("user", user);
+				userRepository.saveAndFlush(user);
+
 
 				mv.addObject("message", "登録が完了しました。");
 
@@ -87,7 +94,7 @@ public class loginController {
 				mv.setViewName("accountPage");
 			}
 
-			mv.setViewName("accountpage");
+			mv.setViewName("log");
 
 			return mv;
 		}
