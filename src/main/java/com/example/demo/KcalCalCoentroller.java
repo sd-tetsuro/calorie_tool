@@ -49,11 +49,14 @@ public class KcalCalCoentroller {
 	@RequestMapping("/addFood")
 	public ModelAndView add(
 			ModelAndView mv,
-			@RequestParam("value") int categorycode
+			@RequestParam("uname") String uname,
+			@RequestParam("calResult") int calResult,
+			@RequestParam("grams") int grams
 
-	) {
 
-
+	) {System.out.println(uname);
+	System.out.println(calResult);
+	System.out.println(grams);
 
 		mv.setViewName("kcalCal");
 		return mv;
