@@ -29,7 +29,7 @@ public class KcalCalCoentroller {
 		return mv;
 	}
 
-	//
+	//カテゴリー検索
 	@RequestMapping("/findByCode")
 	public ModelAndView foodsByCode(
 			ModelAndView mv,
