@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウントページ</title>
+ <link href="/CSS/accountPage.css" rel="stylesheet">
 </head>
 <body>
-アカウント作成画面
+<h1>Create an account</h1>
 <div th:if="${message != null}"><span th:text="${message}" style="color:red"></span></div>
 
 <form action="/newUser" method="post">
+<br>	<input type="text" name="name" placeholder="名前">
 <br>
-名前	<input type="text" name="name">
+<input type="text" name="email" placeholder="メールアドレス">
 <br>
-メールアドレス<input type="text" name="email">
-<br>
-パスワード<input type="password" name="password">
+<input type="password" name="password"　 placeholder="パスワード">
 <br>
 <input type="submit" value="登録">
 </form>
 <br>
-<a href="/login">ログイン画面に戻る</a>
+<p><a href="/login">ログイン画面に戻る</a></p>
 </body>
 </html>
