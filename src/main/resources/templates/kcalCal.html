@@ -31,20 +31,23 @@
 
 	<div>
 		<h2>
-			<a href="/findByCode?value=1">穀物</a> <a href="/findByCode?value=9">肉</a> <a href="/findByCode?value=8">魚</a>
-			<a href="/findByCode?value=2">芋&でんぷん</a> <a href="/findByCode?value=3">豆&ナッツ</a> <a href="/findByCode?value=4">野菜</a>
+			<a href="/findByCode?value=1">穀物</a> <a href="/findByCode?value=9">肉</a>
+			<a href="/findByCode?value=8">魚</a> <a href="/findByCode?value=2">芋&でんぷん</a>
+			<a href="/findByCode?value=3">豆&ナッツ</a> <a href="/findByCode?value=4">野菜</a>
 		</h2>
 	</div>
 	<span>
 		<h2>
-			<a href="/findByCode?value=5">果実</a> <a href="/findByCode?value=6">きのこ</a> <a href="/findByCode?value=7">海藻</a>
-			<a href="/findByCode?value=10">卵&乳製品</a> <a href="/findByCode?value=11">調味料</a><a href="/kcalCal">全件表示</a>
+			<a href="/findByCode?value=5">果実</a> <a href="/findByCode?value=6">きのこ</a>
+			<a href="/findByCode?value=7">海藻</a> <a href="/findByCode?value=10">卵&乳製品</a>
+			<a href="/findByCode?value=11">調味料</a><a href="/kcalCal">全件表示</a>
 		</h2>
 	</span>
 	<form action="/sarch" method="post">
 		<input type="text" name="name"> <input type="submit"
 			value="検索"> <br>
 	</form>
+
 	<table border="1">
 		<tr>
 			<th>食材</th>
@@ -56,21 +59,52 @@
 		<tr>
 			<td><select name="food" id="food">
 					<option value="" selected>---</option>
-				<option th:each="food:${list}" th:value="${food.uname}" th:text="${food.uname}"
-				></option>
-				</select>
-				</td>
+					<option th:each="food:${list}" th:value="${food.kcal}"
+						th:text="${food.uname}"></option>
+			</select></td>
 			<td>×</td>
-			<td><input type="text" name="foodGram">g</td>
+			<td><input type="text" name="foodGram" id="gram">g</td>
 			<td>=</td>
-			<td></td>
+			<td id="disp"></td>
 		</tr>
 	</table>
+
+		<form action="/addFood" method="post">
+		<input type="text" name="name"> <input type="submit"
+			value="追加"> <br>
+	</form>
+
 	<a href="/myPage">マイページへ</a>
 	<a href="/myMenu">マイメニューへ</a>
 
 	<br>
 	<a href="/login">ログアウト</a>
 
+
+
+
+	<script>
+		var disp = document.querySelector("#disp");
+		var food = document.querySelector("#food");
+		var gram = document.querySelector("#gram");
+
+		food.addEventListener("change", function() {
+			f()
+		});
+		gram.addEventListener("change", function() {
+			f()
+		});
+
+		function f() {
+			//今ディスプレイに表示されている文字列を取得
+			var index = food.selectedIndex;
+
+			var value = food.options[index].value;
+
+			disp.innerHTML = value * gram.value / 100;
+
+
+		}
+	</script>
 </body>
 </html>
