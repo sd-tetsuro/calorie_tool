@@ -12,6 +12,7 @@
 	<tr>
 		<th>メニュー</th><th>カロリー</th><th>時間</th><td></td>
 	</tr>
+	<tr>
 		<td th:text="${menu}"></td>
 		<td th:text="${kcal}"></td>
 		<td th:text="${time}"></td>
@@ -20,6 +21,6 @@
 	</table></h2>
 	<h3>Total</h3><span th:text="${total}">kcal</span>
 
-<p><a href="/kcalCal">メニュー登録へ</a><a href="/login">ログアウト</a></p>
+<a href="/kcalCal">メニュー登録へ</a><a href="/login">ログアウト</a>
 </body>
 </html>

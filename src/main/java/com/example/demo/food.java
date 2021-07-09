@@ -22,6 +22,7 @@ public class food {
 
 	}
 
+
 	public food(Integer categorycode) {
 		super();
 		this.categorycode = categorycode;

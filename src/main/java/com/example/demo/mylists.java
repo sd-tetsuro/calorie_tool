@@ -22,6 +22,11 @@ public class mylists {
 
 	public mylists(String dishname, String uname, Integer kcalall, Integer grams, Integer kcal) {
 
+		this.dishname = dishname;
+		this.uname = uname;
+		this.kcalall = kcalall;
+		this.grams = grams;
+		this.kcal = kcal;
 	}
 
 
@@ -31,6 +36,12 @@ public class mylists {
 		this.grams = grams;
 		this.kcal = kcal;
 	}
+
+	public mylists(String dishname, Integer kcal) {
+		this.dishname = dishname;
+		this.kcal = kcal;
+	}
+
 
 
 	public mylists(Integer code, Integer categorycode, String dishname, String uname, Integer kcalall, Integer grams,
