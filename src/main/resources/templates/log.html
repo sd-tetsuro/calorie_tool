@@ -3,19 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+
+<h1>Welcome to Calorie tool !</h1>
+
+
+ <link href="/CSS/log.css" rel="stylesheet">
 </head>
 <body>
-
 <form action="/log" method="post">
-<span th:text="${message}" style="color:red"></span>
+<p><span th:text="${message}" style="color:red"></span></p>
 	<br>
-	メールアドレス<input type="text" name="email" placeholder="メールアドレス">
+	<input type="text" name="email" placeholder="メールアドレス">
 	<br>
-	パスワード<input type="text" name="password" placeholder="パスワード">
+	<input type="text" name="password" placeholder="パスワード">
 	<br><br>
 	<input type="submit" value="ログイン">
 	<br>
-	<a href="/accountPage">アカウント作成へ</a>
+	<div><a href="/accountPage">アカウント作成へ</a></div>
 
 </form>
 
