@@ -15,6 +15,9 @@ public class KcalCalCoentroller {
 	@Autowired
 	private foodRepository foodRepository;
 
+	@Autowired
+	private mylistsRepository mylistsRepository;
+
 	//メニュー登録（カロリー計算へ移動）
 	//全件表示
 	@RequestMapping("/kcalCal")
@@ -84,7 +87,18 @@ public class KcalCalCoentroller {
 	//メニュー登録（登録ボタン押下）
 	@RequestMapping(value = "/myMenu", method = RequestMethod.POST)
 	public ModelAndView confirm(
+			@RequestParam("dishname") String dishname,
+			@RequestParam("uname") String uname,
+			@RequestParam("kcalall") Integer kcalall,
+			@RequestParam("grams") Integer grams,
+			@RequestParam("kcal") Integer kcal,
 			ModelAndView mv) {
+
+		mylists mylists = new mylists(dishname,uname,kcalall,grams,kcal);
+
+		mylistsRepository.saveAndFlush(mylists);
+
+		mv.addObject("list", mylists);
 
 		mv.setViewName("myMenu");
 		return mv;

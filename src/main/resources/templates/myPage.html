@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>本日のカロリー</title>
-
+<link href="/CSS/myPage.css" rel="stylesheet">
 </head>
 <body>
 	<h2>本日のカロリー</h2>
-
+<h2>
 	<table border="1">
 	<tr>
 		<th>メニュー</th><th>カロリー</th><th>時間</th><td></td>
@@ -17,9 +17,9 @@
 		<td th:text="${time}"></td>
 		<td><input type="submit" value="編集"></td>
 	</tr>
-	</table>
-	Total<span th:text="${total}">kcal</span>
+	</table></h2>
+	<h3>Total</h3><span th:text="${total}">kcal</span>
 
-<a href="/kcalCal">メニュー登録へ</a><a href="/login">ログアウト</a>
+<p><a href="/kcalCal">メニュー登録へ</a><a href="/login">ログアウト</a></p>
 </body>
 </html>

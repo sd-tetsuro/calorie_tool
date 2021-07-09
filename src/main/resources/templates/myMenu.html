@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>マイメニュー画面</title>
@@ -8,8 +8,12 @@
 <h1>マイメニュー</h1>
 <form action="/confirm">
 <table border="1">
-	<tr th:each="food:${menu}">
-		<td th:text="${food.name}"></td>
+<tr>
+	<td>メニュー</td><td>カロリー</td>
+</tr>
+	<tr th:each="mylists:${list}">
+		<td th:text="${mylists.dishname}"></td>
+		<td th:text="${mylists.kcalall}"></td>
 		<td><input type="submit" value="EAT!"></td>
 	</tr>
 	</table>

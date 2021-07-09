@@ -20,7 +20,7 @@ public class mylists {
 	private Integer kcal;
 
 
-	public mylists() {
+	public mylists(String dishname, String uname, Integer kcalall, Integer grams, Integer kcal) {
 
 	}
 
