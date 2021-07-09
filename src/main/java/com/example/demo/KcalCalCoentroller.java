@@ -45,6 +45,20 @@ public class KcalCalCoentroller {
 		return mv;
 	}
 
+	//食材をリストに追加
+	@RequestMapping("/addFood")
+	public ModelAndView add(
+			ModelAndView mv,
+			@RequestParam("value") int categorycode
+
+	) {
+
+
+
+		mv.setViewName("kcalCal");
+		return mv;
+	}
+
 
 	//マイメニューへ移動
 	@RequestMapping("/myMenu")

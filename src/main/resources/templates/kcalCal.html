@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>カロリー計算ツール</title>
- <link href="/CSS/kcalCal.css" rel="stylesheet">
+<link href="/CSS/kcalCal.css" rel="stylesheet">
 </head>
 <body>
 	<h1>
 		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${login}"></span>さん。
 
 	</h1>
+
 	<a href="/custom">カスタム入力</a>
 
 	<form action="/myMenu">
@@ -65,13 +66,16 @@
 			<td>×</td>
 			<td><input type="text" name="foodGram" id="gram">g</td>
 			<td>=</td>
-			<td id="disp"></td>
+			<td id="disp" th:name="disp"></td>
 		</tr>
 	</table>
 
-		<form action="/addFood" method="post">
-		<input type="text" name="name"> <input type="submit"
-			value="追加"> <br>
+	<form action="/addFood" method="post">
+		<input type="hidden" name="uname" th:value="${food.uname}">
+		<input type="hidden" name="calResult" th:value="disp">
+		<input type="hidden" name="grams" th:value="foodGram">
+
+		<input type="submit" value="追加"> <br>
 	</form>
 
 	<a href="/myPage">マイページへ</a>
@@ -102,7 +106,6 @@
 			var value = food.options[index].value;
 
 			disp.innerHTML = value * gram.value / 100;
-
 
 		}
 	</script>
