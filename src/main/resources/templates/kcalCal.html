@@ -31,7 +31,7 @@
 
 	<div>
 		<h2>
-			<a href="/findByCode" th:name="1">穀物</a> <a href="/findByCode">肉</a> <a href="/findByCode">魚</a>
+			<a href="/findByCode?value=1">穀物</a> <a href="/findByCode?value=2">肉</a> <a href="/findByCode?value=3">魚</a>
 			<a href="/findByCode">芋&でんぷん</a> <a href="/findByCode">豆&ナッツ</a> <a href="/findByCode">野菜</a>
 		</h2>
 	</div>
@@ -55,9 +55,9 @@
 		</tr>
 		<tr>
 			<td><select name="food" id="food">
-					<option value="" th:selected>---</option>
+					<option value="" selected>---</option>
 				<option th:each="food:${list}" th:value="${food.uname}" th:text="${food.uname}"
-				th:selected="${food.uname}"></option>
+				></option>
 				</select>
 				</td>
 			<td>×</td>

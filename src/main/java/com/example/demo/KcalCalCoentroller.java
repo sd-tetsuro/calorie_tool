@@ -33,7 +33,7 @@ public class KcalCalCoentroller {
 	@RequestMapping("/findByCode")
 	public ModelAndView foodsByCode(
 			ModelAndView mv,
-			@RequestParam("th:name") int categorycode
+			@RequestParam("value") int categorycode
 
 	) {
 		List<food> food = foodRepository.findByCategorycode(categorycode);
