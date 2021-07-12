@@ -48,6 +48,7 @@ public class loginController {
 				//ログイン成功
 				String name = user.getName();
 
+
 				session.setAttribute("login", name);
 				mv.addObject("login", name);
 				mv.setViewName("myPage");

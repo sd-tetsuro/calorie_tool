@@ -18,6 +18,7 @@ public class mylists {
 	private Integer kcalall;
 	private Integer grams;
 	private Integer kcal;
+	private Integer usercode;
 
 
 	public mylists(String dishname, String uname, Integer kcalall, Integer grams, Integer kcal) {
@@ -27,6 +28,15 @@ public class mylists {
 		this.kcalall = kcalall;
 		this.grams = grams;
 		this.kcal = kcal;
+	}
+	public mylists(String dishname, String uname, Integer kcalall, Integer grams, Integer kcal,Integer usercode) {
+
+		this.dishname = dishname;
+		this.uname = uname;
+		this.kcalall = kcalall;
+		this.grams = grams;
+		this.kcal = kcal;
+		this.usercode = usercode;
 	}
 
 
@@ -97,6 +107,11 @@ public class mylists {
 	public void setKcal(Integer kcal) {
 		this.kcal = kcal;
 	}
-
+	public Integer getUsercode() {
+		return usercode;
+	}
+	public void setUsercode(Integer usercode) {
+		this.usercode = usercode;
+	}
 
 }

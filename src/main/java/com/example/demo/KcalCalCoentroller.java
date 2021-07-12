@@ -16,9 +16,6 @@ public class KcalCalCoentroller {
 	private foodRepository foodRepository;
 
 	@Autowired
-	private SelectedFoodRepository selectedFoodRepository;
-
-	@Autowired
 	private mylistsRepository mylistsRepository;
 
 	//メニュー登録（カロリー計算へ移動）
@@ -60,20 +57,10 @@ public class KcalCalCoentroller {
 			@RequestParam("grams") int grams
 
 
-	) {/*System.out.println(uname);
+	) {System.out.println(uname);
 	System.out.println(calResult);
-	System.out.println(grams);*/
+	System.out.println(grams);
 
-//1この情報をDBに登録
-		//2DBから登録食材の一覧を取得
-		SelectedFood selectedFood = new SelectedFood(uname, calResult, grams);
-
-		selectedFoodRepository.saveAndFlush(selectedFood);
-
-		mv.addObject("SelectedFood", selectedFood);
-		mv.addObject("uName",uname);
-		mv.addObject("calResult",calResult);
-		mv.addObject("grams",grams);
 		mv.setViewName("kcalCal");
 		return mv;
 	}
@@ -98,7 +85,7 @@ public class KcalCalCoentroller {
 	}
 
 	//メニュー登録（登録ボタン押下）
-/*	@RequestMapping(value = "/myMenu", method = RequestMethod.POST)
+	@RequestMapping(value = "/myMenu", method = RequestMethod.POST)
 	public ModelAndView confirm(
 			@RequestParam("dishname") String dishname,
 			@RequestParam("uname") String uname,
@@ -107,15 +94,16 @@ public class KcalCalCoentroller {
 			@RequestParam("kcal") Integer kcal,
 			ModelAndView mv) {
 
-		mylists mylists = new mylists(dishname,uname,kcalall,grams,kcal);
 
-		mylistsRepository.saveAndFlush(mylists);
+		List<mylists> mylists = mylistsRepository.findAll();
+
+		mylistsRepository.saveAllAndFlush(mylists);
 
 		mv.addObject("list", mylists);
 
 		mv.setViewName("myMenu");
 		return mv;
-	}*/
+	}
 
 	//食材検索（検索ボタン押下）
 	@RequestMapping(value = "/sarch", method = RequestMethod.POST)
@@ -127,29 +115,35 @@ public class KcalCalCoentroller {
 	}
 
 	//カスタム入力（登録ボタン押下）
-	@RequestMapping(value = "/custom/regi", method = RequestMethod.POST)
-	public ModelAndView customRegi(
-			@RequestParam("dishname") String dishname,
-			@RequestParam("kcal") String kcal,
-			ModelAndView mv
-			) {
-		if (!dishname.equals("") && !kcal.equals("")) {
+		@RequestMapping(value = "/custom/regi", method = RequestMethod.POST)
+		public ModelAndView customRegi(
+				@RequestParam("dishname") String dishname,
+				@RequestParam("kcalall") Integer kcalall,
+				ModelAndView mv
+				) {
 
-			//ユーザーインスタンスの生成
-			mylists mylists = new mylists(dishname, Integer.parseInt(kcal));
+			if (!dishname.equals("")) {
 
-			mylistsRepository.saveAndFlush(mylists);
+				//ユーザーインスタンスの生成
+				mylists mylists = new mylists(dishname, kcalall);
 
 
-			mv.addObject("message", "登録が完了しました。");
 
-			mv.setViewName("custom");
-		} else {
-			mv.addObject("message", "未入力の項目があります。");
-			mv.setViewName("custom");
+				mylistsRepository.saveAndFlush(mylists);
+
+
+
+				mv.addObject("list", mylists);
+
+				mv.addObject("message", "登録が完了しました。");
+
+				mv.setViewName("custom");
+			} else {
+				mv.addObject("message", "未入力の項目があります。");
+				mv.setViewName("custom");
+			}
+			return mv;
 		}
-		return mv;
-	}
 	//カスタム登録（EATボタン押下）
 	@RequestMapping(value = "/custom/confirm", method = RequestMethod.POST)
 	public ModelAndView customConfirm(

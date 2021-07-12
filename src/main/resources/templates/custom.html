@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>custom</title>
@@ -14,15 +14,14 @@
 		<th>食材</th><th>カロリー</th>
 	</tr>
 	<tr>
-<td><input type="text" name="uname" placeholder="食材"></td>
-<td><input type="text" name="kcal" placeholder="カロリー">kcal</td>
+<td><input type="text" name="dishname" placeholder="メニュー"></td>
+<td><input type="text" name="kcalall" placeholder="カロリー">kcal</td>
 
 
 </tr>
 
 </table>
 <br>
-
 <input type="submit" value="登録">
 </form>
 <form action="/custom/confirm" method="post">
