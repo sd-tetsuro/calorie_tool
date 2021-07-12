@@ -5,8 +5,10 @@
 <title>本日のカロリー</title>
 <link href="/CSS/myPage.css" rel="stylesheet">
 </head>
-<body>
+<body>				
 	<h2>本日のカロリー</h2>
+	ようこそ<span th:text="{login}"></span>さん。
+
 <h2>
 	<table border="1">
 	<tr>
@@ -20,6 +22,7 @@
 	</tr>
 	</table></h2>
 	<h3>Total</h3><span th:text="${total}">kcal</span>
+
 
 <a href="/kcalCal">メニュー登録へ</a><a href="/login">ログアウト</a>
 </body>

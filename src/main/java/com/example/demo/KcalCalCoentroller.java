@@ -17,13 +17,14 @@ public class KcalCalCoentroller {
 
 	@Autowired
 	private mylistsRepository mylistsRepository;
-
+//aaa
 	//メニュー登録（カロリー計算へ移動）
 	//全件表示
 	@RequestMapping("/kcalCal")
 	public ModelAndView kcalCal(
 			ModelAndView mv) {
 		List<food> list = foodRepository.findAll();
+
 
 		mv.addObject("list", list);
 
@@ -61,6 +62,16 @@ public class KcalCalCoentroller {
 	System.out.println(calResult);
 	System.out.println(grams);
 
+//1この情報をDBに登録
+		//2DBから登録食材の一覧を取得
+		SelectedFood selectedFood = new SelectedFood(uname, calResult, grams);
+
+		selectedFoodRepository.saveAndFlush(selectedFood);
+
+		mv.addObject("SelectedFood", selectedFood);
+		mv.addObject("uname",uname);
+		mv.addObject("calResult",calResult);
+		mv.addObject("grams",grams);
 		mv.setViewName("kcalCal");
 		return mv;
 	}

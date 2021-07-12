@@ -47,10 +47,13 @@ public class loginController {
 
 				//ログイン成功
 				String name = user.getName();
+				Integer code =user.getCode();
 
 
 				session.setAttribute("login", name);
+				session.setAttribute("login", code);
 				mv.addObject("login", name);
+				mv.addObject("code", code);
 				mv.setViewName("myPage");
 
 			} else {
