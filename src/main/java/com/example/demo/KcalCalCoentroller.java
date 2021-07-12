@@ -148,14 +148,6 @@ public class KcalCalCoentroller {
 		return mv;
 	}*/
 
-	//食材検索（検索ボタン押下）
-	@RequestMapping(value = "/sarch", method = RequestMethod.POST)
-	public ModelAndView sarch(
-			ModelAndView mv) {
-
-		mv.setViewName("sarch");
-		return mv;
-	}
 
 	//カスタム入力（登録ボタン押下）
 	@RequestMapping(value = "/custom/regi", method = RequestMethod.POST)
