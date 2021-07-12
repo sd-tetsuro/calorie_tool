@@ -2,8 +2,11 @@ package com.example.demo;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class KcalCalCoentroller {
 
 	@Autowired
+	HttpSession session;
+
+	@Autowired
 	private foodRepository foodRepository;
 
 	@Autowired
@@ -20,6 +26,10 @@ public class KcalCalCoentroller {
 
 	@Autowired
 	private mylistsRepository mylistsRepository;
+
+	@Autowired
+	private menuRepository menuRepository;
+
 //aaa
 	//メニュー登録（カロリー計算へ移動）
 	//全件表示
@@ -27,6 +37,8 @@ public class KcalCalCoentroller {
 	public ModelAndView kcalCal(
 			ModelAndView mv) {
 		List<food> list = foodRepository.findAll();
+
+		session.setAttribute("dishcode", 1);
 
 		mv.addObject("list", list);
 
@@ -65,17 +77,20 @@ public class KcalCalCoentroller {
 	System.out.println(grams);*/
 
 //1この情報をDBに登録
+		int dishcode = (int) session.getAttribute("dishcode");
 		//2DBから登録食材の一覧を取得
-		SelectedFood selectedFood = new SelectedFood(uname, (int)calResult, grams);
+		SelectedFood selectedFood = new SelectedFood(uname, (int)calResult, grams,dishcode);
 
 		selectedFoodRepository.saveAndFlush(selectedFood);
 
-		mv.addObject("SelectedFood", selectedFood);
+		List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+		mv.addObject("SelectedFood", selectedFoods);
 		mv.addObject("uname",uname);
 		mv.addObject("calResult",calResult);
 		mv.addObject("grams",grams);
 		mv.setViewName("kcalCal");
-		return mv;
+		return kcalCal(mv);
 	}
 
 
@@ -97,6 +112,22 @@ public class KcalCalCoentroller {
 		return mv;
 	}
 
+
+	@PostMapping("/myMenu")
+	public ModelAndView confirm(
+			@RequestParam("menu") String menu,
+			ModelAndView mv) {
+		int dishcode = (int) session.getAttribute("dishcode");
+
+		menu m = new menu(menu,dishcode);
+
+		menuRepository.saveAndFlush(m);
+
+		List<menu> m2= menuRepository.findAll();
+		mv.addObject("list",m2);
+		mv.setViewName("myMenu");
+		return mv;
+	}
 	//メニュー登録（登録ボタン押下）
 /*	@RequestMapping(value = "/myMenu", method = RequestMethod.POST)
 	public ModelAndView confirm(
