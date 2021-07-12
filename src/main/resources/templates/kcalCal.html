@@ -8,22 +8,22 @@
 <body>
 	<h1>
 		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${login}"></span>さん。
-
+//
 	</h1>
 
 	<a href="/custom">カスタム入力</a>
 
-	<form action="/myMenu">
+ 	<form action="/myMenu" method="post">
 		<table border="1">
 			<tr>
 				<th>メニュー</th>
 				<th>量</th>
 				<th>カロリー</th>
 			</tr>
-			<tr th:each="selected:${selectedFood}">
+			<tr th:each="selected:${SelectedFood}">
 			<td th:text="${selected.uname}"></td>
-			<td th:text="${selected.calResult}"></td>
 			<td th:text="${selected.grams}"></td>
+			<td th:text="${selected.calResult}"></td>
 
 			</tr>
 		</table>
@@ -72,9 +72,9 @@
 	</table>
 
 	<form action="/addFood" method="post">
-		<!--<input type="hidden" name="uname" th:value="${food.uname}">
-		<input type="hidden" name="calResult" th:value="disp">
-		<input type="hidden" name="grams" th:value="foodGram">-->
+		<input type="hidden" name="uname"  id="uname">
+		<input type="hidden" name="calResult"  id="calResult">
+		<input type="hidden" name="grams"  id="grams">
 
 		<input type="submit" value="追加"> <br>
 	</form>
@@ -92,6 +92,9 @@
 		var disp = document.querySelector("#disp");
 		var food = document.querySelector("#food");
 		var gram = document.querySelector("#gram");
+		var param1 = document.querySelector("#uname");
+		var param2 = document.querySelector("#calResult");
+		var param3 = document.querySelector("#grams");
 
 		food.addEventListener("change", function() {
 			f()
@@ -107,7 +110,10 @@
 			var value = food.options[index].value;
 
 			disp.innerHTML = value * gram.value / 100;
+			param1.value =food.options[index].innerHTML;
 
+			param2.value =disp.innerHTML;
+			param3.value = gram.value;
 		}
 	</script>
 </body>
