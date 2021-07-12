@@ -30,7 +30,7 @@ public class KcalCalCoentroller {
 	@Autowired
 	private menuRepository menuRepository;
 
-//aaa
+
 	//メニュー登録（カロリー計算へ移動）
 	//全件表示
 	@RequestMapping("/kcalCal")
@@ -46,7 +46,7 @@ public class KcalCalCoentroller {
 
 		return mv;
 	}
-//aaaa
+
 	//カテゴリー検索
 	@RequestMapping("/findByCode")
 	public ModelAndView foodsByCode(
@@ -72,11 +72,9 @@ public class KcalCalCoentroller {
 			@RequestParam("grams") int grams
 
 
-	) {/*System.out.println(uname);
-	System.out.println(calResult);
-	System.out.println(grams);*/
+	) {
 
-//1この情報をDBに登録
+		//1この情報をDBに登録
 		int dishcode = (int) session.getAttribute("dishcode");
 		//2DBから登録食材の一覧を取得
 		SelectedFood selectedFood = new SelectedFood(uname, (int)calResult, grams,dishcode);
@@ -112,12 +110,13 @@ public class KcalCalCoentroller {
 		return mv;
 	}
 
-
+	//登録ボタン押下
 	@PostMapping("/myMenu")
 	public ModelAndView confirm(
 			@RequestParam("menu") String menu,
 			ModelAndView mv) {
 		int dishcode = (int) session.getAttribute("dishcode");
+		dishcode=dishcode+1;
 
 		menu m = new menu(menu,dishcode);
 
