@@ -19,6 +19,7 @@ public class SelectedFood {
 	@Column(name="calresult")
 	private Integer calResult;
 	private Integer grams;
+	@Column(name="dishcode")
     private Integer dishCode;
 	public SelectedFood() {
 		super();

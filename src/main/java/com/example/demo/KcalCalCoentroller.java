@@ -32,7 +32,7 @@ public class KcalCalCoentroller {
 
 		return mv;
 	}
-
+//aaaa
 	//カテゴリー検索
 	@RequestMapping("/findByCode")
 	public ModelAndView foodsByCode(
@@ -54,7 +54,7 @@ public class KcalCalCoentroller {
 	public ModelAndView add(
 			ModelAndView mv,
 			@RequestParam("uname") String uname,
-			@RequestParam("calResult") int calResult,
+			@RequestParam("calResult") double calResult,
 			@RequestParam("grams") int grams
 
 
@@ -64,7 +64,7 @@ public class KcalCalCoentroller {
 
 //1この情報をDBに登録
 		//2DBから登録食材の一覧を取得
-		SelectedFood selectedFood = new SelectedFood(uname, calResult, grams);
+		SelectedFood selectedFood = new SelectedFood(uname, (int)calResult, grams);
 
 		selectedFoodRepository.saveAndFlush(selectedFood);
 
