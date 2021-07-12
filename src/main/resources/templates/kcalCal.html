@@ -8,12 +8,12 @@
 <body>
 	<h1>
 		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${login}"></span>さん。
-
+//
 	</h1>
 
 	<a href="/custom">カスタム入力</a>
 
- 	<form action="/myMenu">
+ 	<form action="/myMenu" method="post">
 		<table border="1">
 			<tr>
 				<th>メニュー</th>
@@ -22,8 +22,8 @@
 			</tr>
 			<tr th:each="selected:${SelectedFood}">
 			<td th:text="${selected.uname}"></td>
-			<td th:text="${selected.calResult}"></td>
 			<td th:text="${selected.grams}"></td>
+			<td th:text="${selected.calResult}"></td>
 
 			</tr>
 		</table>

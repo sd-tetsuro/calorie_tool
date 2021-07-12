@@ -17,7 +17,7 @@ public class SelectedFood {
 	@Column(name="uname")
 	private String uname;
 	@Column(name="calresult")
-	private Integer calResult;
+	private double calResult;
 	private Integer grams;
 	@Column(name="dishcode")
     private Integer dishCode;
@@ -33,7 +33,7 @@ public class SelectedFood {
 		this.code = code;
 	}
 
-	public SelectedFood(Integer code, String uname, Integer calResult, Integer grams, Integer dishCode) {
+	public SelectedFood(Integer code, String uname, double calResult, Integer grams, Integer dishCode) {
 		super();
 		this.code = code;
 		this.uname = uname;
@@ -42,7 +42,7 @@ public class SelectedFood {
 		this.dishCode = dishCode;
 	}
 
-	public SelectedFood(String uname, Integer calResult, Integer grams, Integer dishCode) {
+	public SelectedFood(String uname, double calResult, Integer grams, Integer dishCode) {
 		super();
 		this.uname = uname;
 		this.calResult = calResult;
@@ -58,7 +58,7 @@ public class SelectedFood {
 		this.dishCode = dishCode;
 	}
 
-	public SelectedFood(String uname, Integer calResult, Integer grams) {
+	public SelectedFood(String uname, double calResult, Integer grams) {
 		super();
 		this.uname = uname;
 		this.calResult = calResult;
@@ -70,7 +70,7 @@ public class SelectedFood {
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
-	public Integer getCalResult() {
+	public double getCalResult() {
 		return calResult;
 	}
 	public void setCalResult(Integer calResult) {
