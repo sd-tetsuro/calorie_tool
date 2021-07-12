@@ -13,14 +13,14 @@
 
 	<a href="/custom">カスタム入力</a>
 
-	<form action="/myMenu">
+ 	<form action="/myMenu">
 		<table border="1">
 			<tr>
 				<th>メニュー</th>
 				<th>量</th>
 				<th>カロリー</th>
 			</tr>
-			<tr th:each="selected:${selectedFood}">
+			<tr th:each="selected:${SelectedFood}">
 			<td th:text="${selected.uname}"></td>
 			<td th:text="${selected.calResult}"></td>
 			<td th:text="${selected.grams}"></td>
@@ -72,7 +72,7 @@
 	</table>
 
 	<form action="/addFood" method="post">
-		<!--<input type="hidden" name="uname" th:value="${food.uname}">
+	<!--	<input type="hidden" name="uname" th:value="${food.uname}">
 		<input type="hidden" name="calResult" th:value="disp">
 		<input type="hidden" name="grams" th:value="foodGram">-->
 

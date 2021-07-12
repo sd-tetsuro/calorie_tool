@@ -71,7 +71,7 @@ public class KcalCalCoentroller {
 		selectedFoodRepository.saveAndFlush(selectedFood);
 
 		mv.addObject("SelectedFood", selectedFood);
-		mv.addObject("uName",uname);
+		mv.addObject("uname",uname);
 		mv.addObject("calResult",calResult);
 		mv.addObject("grams",grams);
 		mv.setViewName("kcalCal");
