@@ -34,7 +34,7 @@ public class KcalCalCoentroller {
 
 		return mv;
 	}
-
+//aaaa
 	//カテゴリー検索
 	@RequestMapping("/findByCode")
 	public ModelAndView foodsByCode(
