@@ -20,11 +20,12 @@
 				<th>量</th>
 				<th>カロリー</th>
 			</tr>
-			<!--<tr th:each="food:${menu}">-->
-			<!-- <td th:text="${food.name}"></td> -->
-			<!--  <td th:text="${food.gram}"></td>-->
-			<!-- <td th:text="${food.kcal}"></td> -->
+			<tr th:each="selected:${selectedFood}">
+			<td th:text="${selected.uname}"></td>
+			<td th:text="${selected.calResult}"></td>
+			<td th:text="${selected.grams}"></td>
 
+			</tr>
 		</table>
 		<input type="text" name="menu"> <input type="submit"
 			value="登録">
