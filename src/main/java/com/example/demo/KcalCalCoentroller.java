@@ -20,7 +20,7 @@ public class KcalCalCoentroller {
 
 	@Autowired
 	private mylistsRepository mylistsRepository;
-
+//aaa
 	//メニュー登録（カロリー計算へ移動）
 	//全件表示
 	@RequestMapping("/kcalCal")
