@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>検索結果</title>
@@ -7,16 +7,19 @@
 <body>
 <h1>検索結果</h1>
 
-“<span th:text="${name}"></span>”の検索結果
+“<span th:text="${keyword}"></span>”の検索結果
 
+<form action="/OK" method="post">
 	<table border="1">
 	<tr>
 		<th>検索一覧</th>
 		</tr>
-	<tr th:each="food:${menu}">
-	<td th:text="${food.name}"></td>
+	<tr th:each="food:${list}">
+	<td th:text="${food.uname}"></td>
+	<td><input type="submit" value="OK"></td>
 	</tr>
 </table>
+</form>
 
 <a href="/kcalCal">メニュー登録へ</a>
 </body>

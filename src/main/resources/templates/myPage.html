@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>本日のカロリー</title>
 <link href="/CSS/myPage.css" rel="stylesheet">
 </head>
-<body>				
+<body>
 	<h2>本日のカロリー</h2>
-	ようこそ<span th:text="{login}"></span>さん。
-
+	ようこそ<span th:text="${login}"></span>さん。
+ユーザーコード<span th:text="${code}"></span>
 <h2>
 	<table border="1">
 	<tr>

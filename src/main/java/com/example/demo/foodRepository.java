@@ -10,5 +10,6 @@ public interface foodRepository  extends JpaRepository<food, Integer> {
 
 	List<food> findByCategorycode(Integer categorycode);
 
+	List<food> findByNameLike(String name);
 
 }
