@@ -78,14 +78,26 @@ public class KcalCalCoentroller {
 			@RequestParam("grams") int grams
 
 	) {
-
+/////////////リストに合計値を入力////////////////////////////
+//		List<grams> list = new ArrayList<grams>();
+//
+//		Integer g = list.get(grams);
+//
+//((List<food .add(grams);
+//		list.add(calResult);
+//
+//		for (int i = 0 ; i < list.size(); i++) {
+//
+//		}
+//
+////////////////////////////////////////////////////////
 		//1この情報をDBに登録
 		int dishcode = (int) session.getAttribute("dishcode");
-		//2DBから登録食材の一覧を取得
+
 		SelectedFood selectedFood = new SelectedFood(uname, (int) calResult, grams, dishcode);
 
 		selectedFoodRepository.saveAndFlush(selectedFood);
-
+		//2DBから登録食材の一覧を取得
 		List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
 
 		mv.addObject("SelectedFood", selectedFoods);
