@@ -10,4 +10,5 @@ public interface menuRepository  extends JpaRepository<menu,
 Integer> {
 	List<menu> findAllByOrderByDishcodeDesc();
 
+	//List<menu> findByUnameAndKcalall(String dishname,Integer kcalall);
 }

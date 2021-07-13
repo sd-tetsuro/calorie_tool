@@ -24,14 +24,20 @@ public class ConfirmCoentroller {
 	private menuRepository menuRepository;
 
 
-	//マイメニュー（EATボタン押下）
-	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
-	public ModelAndView Confirm(
-			ModelAndView mv) {
-
-		mv.setViewName("confirm");
-		return mv;
-	}
+//	//マイメニュー（EATボタン押下）
+//	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
+//	public ModelAndView Confirm(
+//			@RequestParam("dishname") String dishname,
+//			@RequestParam("kcalall") Integer kcalall,
+//			ModelAndView mv) {
+//
+//		List<menu> menu = menuRepository.findByUnameAndKcalall(dishname,kcalall);
+//		mv.addObject("list", menu);
+//
+//
+//		mv.setViewName("confirm");
+//		return mv;
+//	}
 
 
 	//カスタム（EATボタン押下）

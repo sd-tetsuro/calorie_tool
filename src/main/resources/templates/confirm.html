@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>確認画面</title>
@@ -9,16 +9,12 @@
 
 <form action="/myMenu">
 <table border="1">
-	<tr>
+	<tr th:each="menu:${list}">
 		<th>メニュー</th>
-			<td th:text="${menu}"></td>
-		<td th:text="${kcal}">kcal</td>
+			<td th:text="${menu.dishname}"></td>
+		<td th:text="${menu.kcalall}">kcal</td>
 		<td><input type="text" name="time" placeholder="時刻を入力"></td>
 	<td><input type="text" name="day" placeholder="日付を入力"></td>
-	</tr>
-	<tr>
-
-
 </tr>
 
 </table>

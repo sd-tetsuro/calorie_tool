@@ -6,14 +6,14 @@
 </head>
 <body>
 <h1>マイメニュー</h1>
-<form action="/confirm">
+<form action="/confirm" method="post">
 <table border="1">
 <tr>
 	<td>メニュー</td><td>カロリー</td>
 </tr>
-	<tr th:each="mylists:${list}">
-		<td th:text="${mylists.dishname}"></td>
-		<td th:text="${mylists.dishcode}"></td>
+	<tr th:each="m2:${list}">
+		<td th:name="dishname" th:text="${m2.dishname}"></td>
+		<td th:name="kcalall" th:text="${m2.kcalall}"></td>
 		<td><input type="submit" value="EAT!"></td>
 	</tr>
 	</table>
