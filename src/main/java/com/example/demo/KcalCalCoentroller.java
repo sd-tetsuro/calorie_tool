@@ -28,7 +28,6 @@ public class KcalCalCoentroller {
 	@Autowired
 	private menuRepository menuRepository;
 
-
 	//メニュー登録（カロリー計算へ移動）
 	//全件表示
 	@RequestMapping("/kcalCal")
@@ -36,7 +35,18 @@ public class KcalCalCoentroller {
 			ModelAndView mv) {
 		List<food> list = foodRepository.findAll();
 
-		session.setAttribute("dishcode", 1);
+		List<menu> d = menuRepository.findAllByOrderByDishcodeDesc();
+		if (d.size() > 0) {
+
+			menu m = d.get(0);
+
+			Integer dishcode = m.getDishcode();
+			System.out.println(dishcode);
+			dishcode++;
+			session.setAttribute("dishcode", dishcode);
+		} else {
+			session.setAttribute("dishcode", 1);
+		}
 
 		mv.addObject("list", list);
 
@@ -55,8 +65,6 @@ public class KcalCalCoentroller {
 		List<food> food = foodRepository.findByCategorycode(categorycode);
 		mv.addObject("list", food);
 
-
-
 		mv.setViewName("kcalCal");
 		return mv;
 	}
@@ -69,26 +77,23 @@ public class KcalCalCoentroller {
 			@RequestParam("calResult") double calResult,
 			@RequestParam("grams") int grams
 
-
 	) {
 
 		//1この情報をDBに登録
 		int dishcode = (int) session.getAttribute("dishcode");
 		//2DBから登録食材の一覧を取得
-		SelectedFood selectedFood = new SelectedFood(uname, (int)calResult, grams,dishcode);
+		SelectedFood selectedFood = new SelectedFood(uname, (int) calResult, grams, dishcode);
 
 		selectedFoodRepository.saveAndFlush(selectedFood);
 
 		List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
 
 		mv.addObject("SelectedFood", selectedFoods);
-		mv.addObject("uname",uname);
-		mv.addObject("calResult",calResult);
-		mv.addObject("grams",grams);
+		mv.addObject("uname", uname);
+		mv.addObject("calResult", calResult);
+		mv.addObject("grams", grams);
 		mv.setViewName("kcalCal");
 		return kcalCal(mv);
 	}
-
-
 
 }

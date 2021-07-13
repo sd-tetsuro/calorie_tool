@@ -52,6 +52,8 @@ public class MenuRegiCoentroller {
 	public ModelAndView confirm(
 			@RequestParam("menu") String menu,
 			ModelAndView mv) {
+		if (!menu.equals("")) {
+
 		int dishcode = (int) session.getAttribute("dishcode");
 		dishcode=dishcode+1;
 
@@ -62,7 +64,13 @@ public class MenuRegiCoentroller {
 		List<menu> m2= menuRepository.findAll();
 		mv.addObject("list",m2);
 		mv.setViewName("myMenu");
+		}else {
+			mv.addObject("message", "料理名を入力してください。");
+			mv.setViewName("kcalCal");
+
+		}
 		return mv;
+
 	}
 	//メニュー登録（登録ボタン押下）
 /*	@RequestMapping(value = "/myMenu", method = RequestMethod.POST)

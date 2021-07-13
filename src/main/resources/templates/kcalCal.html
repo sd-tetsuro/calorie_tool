@@ -22,14 +22,19 @@
 			</tr>
 			<tr th:each="selected:${SelectedFood}">
 			<td th:text="${selected.uname}"></td>
-			<td th:text="${selected.grams}"></td>
-			<td th:text="${selected.calResult}"></td>
-
+			<td th:text="${selected.grams}" id="addGram"></td>
+			<td th:text="${selected.calResult}" id="addKcal"></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td id="gramAll"></td>
+			<td id="kcalAll"></td>
 			</tr>
 		</table>
 		<input type="text" name="menu"> <input type="submit"
-			value="登録">
-	</form>
+			value="登録"></form>
+<p><span th:text="${message}" style="color:red"></span></p>
+
 
 	<div>
 		<h2>
@@ -76,7 +81,7 @@
 		<input type="hidden" name="calResult"  id="calResult">
 		<input type="hidden" name="grams"  id="grams">
 
-		<input type="submit" value="追加"> <br>
+		<input type="submit" value="追加" id="add"> <br>
 	</form>
 
 
@@ -107,10 +112,32 @@
 
 			disp.innerHTML = value * gram.value / 100;
 			param1.value =food.options[index].innerHTML;
-
 			param2.value =disp.innerHTML;
 			param3.value = gram.value;
 		}
+
+
+		//こっから合計値を出す
+	/*	var gramAll = document.querySelector("#gramAll");
+		var kcalAll = document.querySelector("#kcalAll");
+		var gram = document.querySelector("#add");
+		var addGram = document.querySelector("#addGram");
+		var addKcal = document.querySelector("#addKcal");
+
+		add.addEventListener("click", function() {
+			All()
+		});
+
+		//クリックされたときの処理
+		function All() {
+
+			//計算して表示
+			for(var i=0 ,.length,i++){
+			gramAll.innerHTML =
+			kcalAll.innerHTML =}
+				}*/
+
+
 	</script>
 </body>
 </html>
