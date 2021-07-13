@@ -67,7 +67,7 @@
 			<td><select name="food" id="food">
 					<option value="" selected>---</option>
 					<option th:each="food:${list}" th:value="${food.kcal}"
-						th:text="${food.uname}"></option>
+						th:text="${food.uname}" th:selected="${food.uname==uname}"></option>
 			</select></td>
 			<td>×</td>
 			<td><input type="text" name="foodGram" id="gram">g</td>
