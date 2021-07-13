@@ -43,7 +43,6 @@ public class sarchController {
 		public ModelAndView OKbottun(
 				@PathVariable(name="food.uname")String uname ,
 				ModelAndView mv) {
-
 			List<food> food = foodRepository.findByUname(uname);
 
 			mv.addObject("list",food);

@@ -12,6 +12,5 @@ public interface foodRepository  extends JpaRepository<food, Integer> {
 
 	List<food> findByNameLike(String name);
 
-
 	List<food> findByUname(String uname);
 }
