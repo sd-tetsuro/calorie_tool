@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,14 +39,15 @@ public class sarchController {
 		}
 
 		//マイメニュー登録（登録ボタン押下）
-		@RequestMapping(value = "/OK", method = RequestMethod.POST)
+		@RequestMapping("/OK/{food.uname}")
 		public ModelAndView OKbottun(
-				@RequestParam("keyword") String keyword,
+				@PathVariable(name="food.uname")String uname ,
 				ModelAndView mv) {
-			List<food>food = foodRepository.findByNameLike("%" + keyword + "%");
-			mv.addObject("list", food);
+			List<food> food = foodRepository.findByUname(uname);
 
-			mv.setViewName("sarch");
+			mv.addObject("list",food);
+			mv.addObject("uname",uname);
+			mv.setViewName("kcalCal");
 			return mv;
 		}
 }

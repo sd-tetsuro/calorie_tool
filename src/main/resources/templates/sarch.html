@@ -9,17 +9,17 @@
 
 “<span th:text="${keyword}"></span>”の検索結果
 
-<form action="/OK" method="post">
+
 	<table border="1">
 	<tr>
 		<th>検索一覧</th>
 		</tr>
-	<tr th:each="food:${list}">
-	<td th:text="${food.uname}"></td>
-	<td><input type="submit" value="OK"></td>
+	<tr th:each="food:${list}" >
+	<td th:text="${food.uname}" ></td>
+	<td><a th:href ="'/OK/'+${food.uname}">OK</a></td>
 	</tr>
 </table>
-</form>
+
 
 <a href="/kcalCal">メニュー登録へ</a>
 </body>
