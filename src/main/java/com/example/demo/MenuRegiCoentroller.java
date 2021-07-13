@@ -117,14 +117,6 @@ public class MenuRegiCoentroller {
 		}
 		return mv;
 	}
-	//カスタム（EATボタン押下）
-	@RequestMapping(value = "/custom/confirm", method = RequestMethod.POST)
-	public ModelAndView customConfirm(
-			ModelAndView mv) {
-
-		mv.setViewName("confirm");
-		return mv;
-	}
 	//マイメニュー登録（登録ボタン押下）
 	@RequestMapping(value = "/Mymenu/regi", method = RequestMethod.POST)
 	public ModelAndView menuConfirm(
