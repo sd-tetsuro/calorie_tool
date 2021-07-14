@@ -51,13 +51,14 @@ public class MenuRegiCoentroller {
 	@PostMapping("/myMenu")
 	public ModelAndView confirm(
 			@RequestParam("menu") String menu,
+			@RequestParam("kcalall") double kcalall,
+
 			ModelAndView mv) {
 		if (!menu.equals("")) {
-Integer kcalall=0;
 		int dishcode = (int) session.getAttribute("dishcode");
-		dishcode=dishcode+1;
+		dishcode=dishcode++;
 
-		menu m = new menu(menu,dishcode,kcalall);
+		menu m = new menu(menu,dishcode,(int)kcalall);
 
 		menuRepository.saveAndFlush(m);
 

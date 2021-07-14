@@ -27,10 +27,11 @@
 			</tr>
 			<tr>
 			<td></td>
-			<td id="gramAll" th:text="${gramsSum}"></td>
-			<td id="kcalAll" th:text="${kcalSum}"></td>
+			<td  th:text="${gramsSum}"></td>
+			<td  th:text="${kcalSum}" ></td>
 			</tr>
 		</table>
+		<input type="hidden" name="kcalall" th:value="${kcalSum}">
 		<input type="text" name="menu"> <input type="submit"
 			value="登録"></form>
 <p><span th:text="${message}" style="color:red"></span></p>
