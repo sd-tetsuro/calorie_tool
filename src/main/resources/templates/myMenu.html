@@ -6,18 +6,21 @@
 </head>
 <body>
 <h1>マイメニュー</h1>
-<form action="/confirm" method="post">
+
 <table border="1">
 <tr>
 	<td>メニュー</td><td>カロリー</td>
 </tr>
 	<tr th:each="m2:${list}">
-		<td th:name="dishname" th:text="${m2.dishname}"></td>
-		<td th:name="kcalall" th:text="${m2.kcalall}"></td>
-		<td><input type="submit" value="EAT!"></td>
+		<td th:text="${m2.dishname}"></td>
+		<td  th:text="${m2.kcalall}"></td>
+		<td><form action="/confirm" method="post">
+		<input type="hidden" name="dishname" th:value="${m2.dishname}">
+		<input type="hidden" name="kcalall" th:value="${m2.kcalall}">
+		<input type="submit" value="EAT!"></form></td>
 	</tr>
 	</table>
-	</form>
+
 	 <div th:replace="footer :: footer_fragment"></div>
 
 </body>
