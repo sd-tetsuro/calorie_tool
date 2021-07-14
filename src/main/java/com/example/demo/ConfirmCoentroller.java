@@ -35,7 +35,7 @@ public class ConfirmCoentroller {
 			ModelAndView mv) {
 
 		List<menu> menu = menuRepository.findByDishnameAndKcalall(dishname,kcalall);
-		mv.addObject("list", menu);
+
 
 		mv.addObject("dishname", dishname);
 		mv.addObject("kcalall", kcalall);

@@ -9,10 +9,10 @@
 
 <form action="/myMenu">
 <table border="1">
-	<tr th:each="menu:${list}">
+<tr>
 		<th>メニュー</th>
-			<td th:text="${menu.dishname}"></td>
-		<td th:text="${menu.kcalall}">kcal</td>
+			<td th:text="${dishname}"></td>
+		<td th:text="${kcalall}">kcal</td>
 		<td><input type="text" name="time" placeholder="時刻を入力"></td>
 	<td><input type="text" name="day" placeholder="日付を入力"></td>
 </tr>
