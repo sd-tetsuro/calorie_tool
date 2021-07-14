@@ -91,6 +91,13 @@ public class KcalCalCoentroller {
 //		}
 //
 ////////////////////////////////////////////////////////
+
+//		List<Integer> gramsSum = new ArrayList<Integer>();
+//		gramsSum.add(grams);
+//		for (int i = 0 ; i < gramsSum.size(); i++) {
+//			List<Integer> gramsResult = gramsSum;
+//			System.out.println(gramsResult);
+//		}
 		//1この情報をDBに登録
 		int dishcode = (int) session.getAttribute("dishcode");
 
@@ -99,6 +106,18 @@ public class KcalCalCoentroller {
 		selectedFoodRepository.saveAndFlush(selectedFood);
 		//2DBから登録食材の一覧を取得
 		List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+		int gramsSum=0;
+		double kcalSum = 0;
+		for (SelectedFood data :selectedFoods) {
+			gramsSum += data.getGrams();
+			kcalSum +=data.getCalResult();
+		}
+
+		mv.addObject("gramsSum", gramsSum);
+		mv.addObject("kcalSum", kcalSum);
+
+
 
 		mv.addObject("SelectedFood", selectedFoods);
 		mv.addObject("uname", uname);
