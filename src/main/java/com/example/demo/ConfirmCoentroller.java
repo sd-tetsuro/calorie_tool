@@ -1,11 +1,14 @@
 package com.example.demo;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -24,20 +27,20 @@ public class ConfirmCoentroller {
 	private menuRepository menuRepository;
 
 
-//	//マイメニュー（EATボタン押下）
-//	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
-//	public ModelAndView Confirm(
-//			@RequestParam("dishname") String dishname,
-//			@RequestParam("kcalall") Integer kcalall,
-//			ModelAndView mv) {
-//
-//		List<menu> menu = menuRepository.findByUnameAndKcalall(dishname,kcalall);
-//		mv.addObject("list", menu);
-//
-//
-//		mv.setViewName("confirm");
-//		return mv;
-//	}
+	//マイメニュー（EATボタン押下）
+	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
+	public ModelAndView Confirm(
+			@RequestParam("dishname") String dishname,
+			@RequestParam("kcalall") Integer kcalall,
+			ModelAndView mv) {
+
+		List<menu> menu = menuRepository.findByDishnameAndKcalall(dishname,kcalall);
+		mv.addObject("list", menu);
+
+
+		mv.setViewName("confirm");
+		return mv;
+	}
 
 
 	//カスタム（EATボタン押下）
