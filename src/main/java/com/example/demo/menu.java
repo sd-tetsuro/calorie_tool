@@ -7,81 +7,78 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="menu")
+@Table(name = "menu")
 public class menu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-private Integer code;
-private String dishname;
-private Integer dishcode;
-private Integer kcalall;
+	private Integer code;
+	private String dishname;
+	private Integer dishcode;
+	private Integer kcalall;
 
-public menu() {
-	super();
-}
+	public menu() {
+		super();
+	}
 
-public menu(String dishname, Integer kcalall) {
-	super();
-	this.dishname = dishname;
-	this.kcalall = kcalall;
-}
+	public menu(String dishname, Integer kcalall) {
+		super();
+		this.dishname = dishname;
+		this.kcalall = kcalall;
+	}
 
-public menu(Integer code, String dishname, Integer dishcode, Integer kcalall) {
-	super();
-	this.code = code;
-	this.dishname = dishname;
-	this.dishcode = dishcode;
-	this.kcalall = kcalall;
-}
+	public menu(Integer code, String dishname, Integer dishcode, Integer kcalall) {
+		super();
+		this.code = code;
+		this.dishname = dishname;
+		this.dishcode = dishcode;
+		this.kcalall = kcalall;
+	}
 
+	public menu(String dishname, Integer dishcode, Integer kcalall) {
+		super();
+		this.dishname = dishname;
+		this.dishcode = dishcode;
+		this.kcalall = kcalall;
+	}
 
+	public menu(Integer code, String dishname, Integer dishcode) {
+		super();
+		this.code = code;
+		this.dishname = dishname;
+		this.dishcode = dishcode;
+	}
 
-public menu(String dishname, Integer dishcode, Integer kcalall) {
-	super();
-	this.dishname = dishname;
-	this.dishcode = dishcode;
-	this.kcalall = kcalall;
-}
+	public Integer getKcalall() {
+		return kcalall;
+	}
 
-public menu(Integer code, String dishname, Integer dishcode) {
-	super();
-	this.code = code;
-	this.dishname = dishname;
-	this.dishcode = dishcode;
-}
+	public void setKcalall(Integer kcalall) {
+		this.kcalall = kcalall;
+	}
 
-public Integer getKcalall() {
-	return kcalall;
-}
+	public Integer getCode() {
+		return code;
+	}
 
-public void setKcalall(Integer kcalall) {
-	this.kcalall = kcalall;
-}
+	public void setCode(Integer code) {
+		this.code = code;
+	}
 
-public Integer getCode() {
-	return code;
-}
+	public String getDishname() {
+		return dishname;
+	}
 
-public void setCode(Integer code) {
-	this.code = code;
-}
+	public void setDishname(String dishname) {
+		this.dishname = dishname;
+	}
 
-public String getDishname() {
-	return dishname;
-}
+	public Integer getDishcode() {
+		return dishcode;
+	}
 
-public void setDishname(String dishname) {
-	this.dishname = dishname;
-}
-
-public Integer getDishcode() {
-	return dishcode;
-}
-
-public void setDishcode(Integer dishcode) {
-	this.dishcode = dishcode;
-}
-
+	public void setDishcode(Integer dishcode) {
+		this.dishcode = dishcode;
+	}
 
 }

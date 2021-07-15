@@ -5,23 +5,31 @@
 <title>マイメニュー画面</title>
 </head>
 <body>
-<h1>マイメニュー</h1>
+	<h1>マイメニュー</h1>
 
-<table border="1">
-<tr>
-	<td>メニュー</td><td>カロリー</td>
-</tr>
-	<tr th:each="m2:${list}">
-		<td th:text="${m2.dishname}"></td>
-		<td  th:text="${m2.kcalall}"></td>
-		<td><form action="/confirm" method="post">
-		<input type="hidden" name="dishname" th:value="${m2.dishname}">
-		<input type="hidden" name="kcalall" th:value="${m2.kcalall}">
-		<input type="submit" value="EAT!"></form></td>
-	</tr>
+	<table border="1">
+		<tr>
+			<td>メニュー</td>
+			<td>カロリー</td>
+		</tr>
+		<tr th:each="m2:${list}" name="list">
+			<td th:text="${m2.dishname}"></td>
+			<td th:text="${m2.kcalall}"></td>
+			<td><form action="/confirm" method="post">
+					<input type="hidden" name="dishname" th:value="${m2.dishname}">
+					<input type="hidden" name="kcalall" th:value="${m2.kcalall}">
+					<input type="submit" value="EAT!">
+				</form></td>
+			<td><form action="/del" method="post">
+					<input type="hidden" name="code" th:value="${m2.code}">
+
+					<input type="submit" value="Delete">
+				</form></td>
+
+		</tr>
 	</table>
 
-	 <div th:replace="footer :: footer_fragment"></div>
+	<div th:replace="footer :: footer_fragment"></div>
 
 
 </body>
