@@ -6,8 +6,8 @@
 <link href="/CSS/myPage.css" rel="stylesheet">
 </head>
 <body>
-	<h2>本日のカロリー<br>
-	<span th:text="${date}"></span>
+	<h2><br>
+	<span th:text="${date}"></span>　の食事カロリー
 	</h2>
 
 	ようこそ<span th:text="${login}"></span>さん。
@@ -21,10 +21,9 @@
 		<td th:text="${kcal.dishname}"></td>
 		<td th:text="${kcal.kcalall}">kcal</td>
 		<td th:text="${kcal.time}"></td>
-		<td><input type="submit" value="編集"></td>
 	</tr>
 	</table></h2>
-	<h3>Total</h3><span th:text="${total}">kcal</span>
+	<h2>Total　<span th:text="${total}"></span>kcal</h2>
 
 
  <div th:replace="footer :: footer_fragment"></div>

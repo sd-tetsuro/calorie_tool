@@ -49,10 +49,14 @@ public class MyPageCoentroller {
 		// 登録処理date d
 		kcalRepository.saveAndFlush(kcal);
 
-///
+
 		List<Kcal> cal = kcalRepository.findByDate(d);
 
 
+		int total=0;
+		for (Kcal data :cal) {
+			total +=data.getKcalall();
+		}
 
 
 
@@ -60,6 +64,7 @@ public class MyPageCoentroller {
 
 			mv.addObject("list", cal);
 			mv.addObject("date", d);
+			mv.addObject("total", total);
 			mv.setViewName("myPage");
 
 
