@@ -42,8 +42,12 @@ public class KcalCalCoentroller {
 			menu m = d.get(0);
 
 			Integer dishcode = m.getDishcode();
+
+
 			dishcode++;
 			System.out.println(dishcode);
+///////////////////////////////////////////////////////////////////
+		//	selectedFoodRepository.deleteByDishCode(dishcode);
 
 			session.setAttribute("dishcode", dishcode);
 			List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);

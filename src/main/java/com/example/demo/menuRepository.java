@@ -11,4 +11,5 @@ Integer> {
 	List<menu> findAllByOrderByDishcodeDesc();
 
 	List<menu> findByDishnameAndKcalall(String dishname, Integer kcalall);
+
 }

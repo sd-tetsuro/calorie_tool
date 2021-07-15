@@ -10,4 +10,6 @@ public interface SelectedFoodRepository  extends JpaRepository<SelectedFood,
 Integer> {
 	List <SelectedFood> findAllByDishCode(Integer dishCode);
 
+	//void deleteByDishCode(Integer dishCode);
+
 }
