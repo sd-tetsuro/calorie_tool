@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,6 +22,9 @@ public class loginController {
 
 	@Autowired
 	userRepository userRepository;
+
+	@Autowired
+	KcalRepository kcalRepository;
 
 	@RequestMapping("/login")
 	public String log() {
@@ -42,6 +48,21 @@ public class loginController {
 				// メールアドレスとパスワードが存在したらログインOK
 				// リストの1件目をログインユーザとして取得する
 				user user = users.get(0);
+Date d = Date.valueOf(LocalDate.now().toString());
+
+					 SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd" );
+
+
+					 String date = format.format(d);
+
+
+						List<Kcal> cal = kcalRepository.findByDate(d);
+
+
+						int total=0;
+						for (Kcal data :cal) {
+							total +=data.getKcalall();
+						}
 
 			session.setAttribute("user", user);
 
@@ -55,6 +76,14 @@ public class loginController {
 				mv.addObject("login", name);
 				mv.addObject("code", code);
 				mv.setViewName("myPage");
+				mv.addObject("list", cal);
+				mv.addObject("date", d);
+				mv.addObject("total", total);
+
+
+
+
+
 
 			} else {
 				mv.addObject("message", "ユーザIDとパスワードが一致しませんでした。");

@@ -3,6 +3,8 @@ package com.example.demo;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -26,6 +28,27 @@ public class MyPageCoentroller {
 	@RequestMapping("/myPage")
 	public ModelAndView MyPage(
 			ModelAndView mv) {
+
+		Date d = Date.valueOf(LocalDate.now().toString());
+
+		 SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd" );
+
+		 String date = format.format(d);
+
+
+		List<Kcal> cal = kcalRepository.findByDate(d);
+
+
+		int total=0;
+		for (Kcal data :cal) {
+			total +=data.getKcalall();
+		}
+
+			mv.addObject("list", cal);
+			mv.addObject("date", d);
+			mv.addObject("total", total);
+			mv.setViewName("myPage");
+
 		mv.setViewName("myPage");
 
 		return mv;
@@ -61,6 +84,34 @@ public class MyPageCoentroller {
 
 
 
+
+			mv.addObject("list", cal);
+			mv.addObject("date", d);
+			mv.addObject("total", total);
+			mv.setViewName("myPage");
+
+
+		mv.setViewName("myPage");
+
+		return mv;
+	}
+
+	@RequestMapping(value = "/day", method = RequestMethod.POST)
+	public ModelAndView kakutei(
+			@RequestParam("day") String date,
+			ModelAndView mv) {
+
+
+		Date d=Date.valueOf(date);
+
+
+		List<Kcal> cal = kcalRepository.findByDate(d);
+
+
+		int total=0;
+		for (Kcal data :cal) {
+			total +=data.getKcalall();
+		}
 
 			mv.addObject("list", cal);
 			mv.addObject("date", d);
