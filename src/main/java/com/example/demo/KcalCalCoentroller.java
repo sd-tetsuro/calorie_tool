@@ -66,7 +66,6 @@ public class KcalCalCoentroller {
 			session.setAttribute("dishcode", 1);
 		}
 
-
 		mv.addObject("list", list);
 
 		mv.setViewName("kcalCal");
