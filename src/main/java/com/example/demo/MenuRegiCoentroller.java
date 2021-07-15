@@ -23,6 +23,9 @@ public class MenuRegiCoentroller {
 
 	@Autowired
 	private mylistsRepository mylistsRepository;
+	@Autowired
+	private foodRepository foodRepository;
+
 
 	@Autowired
 	private menuRepository menuRepository;
@@ -31,6 +34,9 @@ public class MenuRegiCoentroller {
 	@RequestMapping("/myMenu")
 	public ModelAndView myMenu(
 			ModelAndView mv) {
+		List<menu> m2 = menuRepository.findAll();
+		mv.addObject("list", m2);
+
 		mv.setViewName("myMenu");
 
 		return mv;
@@ -156,6 +162,10 @@ public class MenuRegiCoentroller {
 			gramsSum += data.getGrams();
 			kcalSum += data.getCalResult();
 		}
+		List<food> list = foodRepository.findAll();
+
+
+		mv.addObject("list", list);
 
 		mv.addObject("gramsSum", gramsSum);
 		mv.addObject("kcalSum", kcalSum);

@@ -2,6 +2,8 @@ package com.example.demo;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +16,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class sarchController {
 
 	@Autowired
+	HttpSession session;
+
+	@Autowired
 	foodRepository foodRepository;
+
+	@Autowired
+	private SelectedFoodRepository selectedFoodRepository;
 
 	//食材検索（検索ボタン押下）
 		@RequestMapping(value = "/sarch", method = RequestMethod.POST)
@@ -25,6 +33,8 @@ public class sarchController {
 			if (!keyword.equals("")) {
 
 			List<food>food = foodRepository.findByNameLike("%" + keyword + "%");
+
+
 			mv.addObject("list", food);
 			mv.addObject("keyword",keyword);
 			mv.setViewName("sarch");
@@ -44,6 +54,22 @@ public class sarchController {
 				@PathVariable(name="food.uname")String uname ,
 				ModelAndView mv) {
 			List<food> food = foodRepository.findByUname(uname);
+			int dishcode = (int) session.getAttribute("dishcode");
+
+			List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+			int gramsSum=0;
+			double kcalSum = 0;
+			for (SelectedFood data :selectedFoods) {
+				gramsSum += data.getGrams();
+				kcalSum +=data.getCalResult();
+			}
+
+			mv.addObject("gramsSum", gramsSum);
+			mv.addObject("kcalSum", kcalSum);
+			mv.addObject("SelectedFood", selectedFoods);
+
+
 
 			mv.addObject("list",food);
 			mv.addObject("uname",uname);

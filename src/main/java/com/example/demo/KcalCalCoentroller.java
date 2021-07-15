@@ -38,15 +38,34 @@ public class KcalCalCoentroller {
 		List<menu> d = menuRepository.findAllByOrderByDishcodeDesc();
 		if (d.size() > 0) {
 
+//			session.invalidate();
 			menu m = d.get(0);
 
 			Integer dishcode = m.getDishcode();
-			System.out.println(dishcode);
 			dishcode++;
+			System.out.println(dishcode);
+
 			session.setAttribute("dishcode", dishcode);
+			List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+			int gramsSum=0;
+			double kcalSum = 0;
+			for (SelectedFood data :selectedFoods) {
+				gramsSum += data.getGrams();
+				kcalSum +=data.getCalResult();
+			}
+
+			mv.addObject("gramsSum", gramsSum);
+			mv.addObject("kcalSum", kcalSum);
+
+
+
+			mv.addObject("SelectedFood", selectedFoods);
+
 		} else {
 			session.setAttribute("dishcode", 1);
 		}
+
 
 		mv.addObject("list", list);
 
@@ -63,6 +82,24 @@ public class KcalCalCoentroller {
 
 	) {
 		List<food> food = foodRepository.findByCategorycode(categorycode);
+		int dishcode = (int) session.getAttribute("dishcode");
+
+		List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+		int gramsSum=0;
+		double kcalSum = 0;
+		for (SelectedFood data :selectedFoods) {
+			gramsSum += data.getGrams();
+			kcalSum +=data.getCalResult();
+		}
+
+		mv.addObject("gramsSum", gramsSum);
+		mv.addObject("kcalSum", kcalSum);
+
+
+
+		mv.addObject("SelectedFood", selectedFoods);
+
 		mv.addObject("list", food);
 
 		mv.setViewName("kcalCal");
