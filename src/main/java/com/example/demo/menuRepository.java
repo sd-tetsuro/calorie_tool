@@ -12,4 +12,6 @@ Integer> {
 
 	List<menu> findByDishnameAndKcalall(String dishname, Integer kcalall);
 
+	List<menu> findByUserid(Integer code);
+
 }

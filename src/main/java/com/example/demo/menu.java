@@ -16,9 +16,27 @@ public class menu {
 	private String dishname;
 	private Integer dishcode;
 	private Integer kcalall;
+	private Integer userid;
 
 	public menu() {
 		super();
+	}
+
+	public menu(Integer code, String dishname, Integer dishcode, Integer kcalall, Integer userid) {
+		super();
+		this.code = code;
+		this.dishname = dishname;
+		this.dishcode = dishcode;
+		this.kcalall = kcalall;
+		this.userid = userid;
+	}
+
+	public menu(String dishname, Integer dishcode, Integer kcalall, Integer userid) {
+		super();
+		this.dishname = dishname;
+		this.dishcode = dishcode;
+		this.kcalall = kcalall;
+		this.userid = userid;
 	}
 
 	public menu(String dishname, Integer kcalall) {
@@ -55,6 +73,14 @@ public class menu {
 
 	public void setKcalall(Integer kcalall) {
 		this.kcalall = kcalall;
+	}
+
+	public Integer getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	public Integer getCode() {

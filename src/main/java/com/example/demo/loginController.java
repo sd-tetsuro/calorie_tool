@@ -51,7 +51,7 @@ public class loginController {
 
 
 				session.setAttribute("login", name);
-				session.setAttribute("login", code);
+				session.setAttribute("code", code);
 				mv.addObject("login", name);
 				mv.addObject("code", code);
 				mv.setViewName("myPage");
