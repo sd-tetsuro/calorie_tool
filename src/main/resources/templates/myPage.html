@@ -6,18 +6,21 @@
 <link href="/CSS/myPage.css" rel="stylesheet">
 </head>
 <body>
-	<h2>本日のカロリー</h2>
+	<h2>本日のカロリー<br>
+	<span th:text="${date}"></span>
+	</h2>
+
 	ようこそ<span th:text="${login}"></span>さん。
 ユーザーコード<span th:text="${code}"></span>
 <h2>
 	<table border="1">
 	<tr>
-		<th>メニュー</th><th>カロリー</th><th>時間</th><td></td>
+		<th>メニュー</th><th>カロリー</th><th>時間</th>
 	</tr>
-	<tr>
-		<td th:text="${menu}"></td>
-		<td th:text="${kcal}"></td>
-		<td th:text="${time}"></td>
+	<tr th:each="kcal:${list}">
+		<td th:text="${kcal.dishname}"></td>
+		<td th:text="${kcal.kcalall}">kcal</td>
+		<td th:text="${kcal.time}"></td>
 		<td><input type="submit" value="編集"></td>
 	</tr>
 	</table></h2>

@@ -7,20 +7,28 @@
 <body>
 <h1>確認画面</h1>
 
-<form action="/myMenu">
+
 <table border="1">
 <tr>
 		<th>メニュー</th>
 			<td th:text="${dishname}"></td>
 		<td th:text="${kcalall}">kcal</td>
-		<td><input type="text" name="time" placeholder="時刻を入力"></td>
-	<td><input type="text" name="day" placeholder="日付を入力"></td>
+		<td>
+		<form action="/myPage" method="post">
+		<input type="hidden" name="dishname" th:value="${dishname}">
+		<input type="hidden" name="kcalall" th:value="${kcalall}">
+		<input type="time" name="time">
+	<input type="date" name="calendar">
+	<input type="submit" value="確定">
+	</form>
+	</td>
 </tr>
 
 </table>
-<input type="submit" value="確定">
-</form>
+
+
 <a href="/custom">戻る</a>
 
+<div th:replace="footer :: footer_fragment"></div>
 </body>
 </html>
