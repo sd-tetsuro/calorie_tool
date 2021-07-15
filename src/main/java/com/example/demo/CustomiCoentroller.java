@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,23 +32,23 @@ public class CustomiCoentroller {
 	//カスタム入力（登録ボタン押下）
 	@RequestMapping(value = "/custom/regi", method = RequestMethod.POST)
 	public ModelAndView customRegi(
-			@RequestParam("dishname") String dishname,
-			@RequestParam("kcal") String kcal,
+			@RequestParam("menu") String menu,
+			@RequestParam("kcalall") Integer kcalall,
 			ModelAndView mv) {
-		if (!dishname.equals("") && !kcal.equals("")) {
 
-			//ユーザーインスタンスの生成
-			mylists mylists = new mylists(dishname, Integer.parseInt(kcal));
+			Integer userid = (Integer) session.getAttribute("code");
+			if (!menu.equals("")) {
+				int dishcode = (int) session.getAttribute("dishcode");
+				dishcode = dishcode++;
 
-			mylistsRepository.saveAndFlush(mylists);
+				menu m = new menu(menu, dishcode, (int) kcalall, userid);
 
-			mv.addObject("message", "登録が完了しました。");
+				menuRepository.saveAndFlush(m);
 
-			mv.setViewName("custom");
-		} else {
-			mv.addObject("message", "未入力の項目があります。");
-			mv.setViewName("custom");
-		}
+				List<menu> m2 = menuRepository.findByUserid(userid);
+				mv.addObject("list", m2);
+				mv.setViewName("myMenu");
+			}
 		return mv;
 	}
 

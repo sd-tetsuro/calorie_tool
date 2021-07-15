@@ -7,25 +7,21 @@
 <body>
 <h1>カスタム入力</h1>
 <p><span th:text="${message}" style="color:red"></span></p>
-<form action="/custom/regi" method="post">
 
+<form action="/custom/regi" method="post">
 <table border="1">
 	<tr>
 		<th>食材</th><th>カロリー</th>
 	</tr>
 	<tr>
-<td><input type="text" name="dishname" placeholder="メニュー"></td>
+<td><input type="text" name="menu" placeholder="メニュー"></td>
 <td><input type="text" name="kcalall" placeholder="カロリー">kcal</td>
 
 
 </tr>
-
 </table>
 <br>
 <input type="submit" value="登録">
-</form>
-<form action="/custom/confirm" method="post">
-<input type="submit" value="EAT!">
 </form>
 <br>
 <a href="/kcalCal">メニュー登録へ</a>
