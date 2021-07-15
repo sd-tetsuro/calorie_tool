@@ -7,13 +7,14 @@
 <body>
 <h1>メニュー詳細</h1>
 
-	<h1><td th:text="${menu}"></td></h1>
+	<h1><span th:text="${m2.dishname}"></span></h1>
 
 <table border="1">
 	<tr th:each="food:${menu}">
-	<td th:text="${food.name}"></td>
+	<td th:text="${food.uname}"></td>
 	<td th:text="${food.grams}"></td>
-	<td th:text="${food.kcal}"></td>
+	<td th:text="${food.calResult}"></td>
+
 	</tr>
 </table>
 

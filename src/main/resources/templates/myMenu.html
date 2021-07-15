@@ -13,7 +13,7 @@
 			<td>カロリー</td>
 		</tr>
 		<tr th:each="m2:${list}" name="list">
-			<td th:text="${m2.dishname}"></td>
+		<td><a th:href="'/detail/'+${m2.code}" th:text="${m2.dishname}"></a>
 			<td th:text="${m2.kcalall}"></td>
 			<td><form action="/confirm" method="post">
 					<input type="hidden" name="dishname" th:value="${m2.dishname}">
