@@ -12,6 +12,12 @@
 
 	ようこそ<span th:text="${session.login}"></span>さん。
 ユーザーコード<span th:text="${session.code}"></span>
+
+
+<form action="/day" method=post>
+<h1><input type="date" name="day">
+<input type="submit" value="日付変更"></h1>
+</form>
 <h2>
 	<table border="1">
 	<tr>
