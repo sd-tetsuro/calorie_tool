@@ -34,7 +34,9 @@ public class MenuRegiCoentroller {
 	@RequestMapping("/myMenu")
 	public ModelAndView myMenu(
 			ModelAndView mv) {
-		List<menu> m2 = menuRepository.findAll();
+		Integer userid = (Integer) session.getAttribute("code");
+
+		List<menu> m2 = menuRepository.findByUserid(userid);
 		mv.addObject("list", m2);
 
 		mv.setViewName("myMenu");
