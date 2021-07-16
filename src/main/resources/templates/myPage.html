@@ -38,6 +38,10 @@
 	<form action="/sokutei" method=post>
 	<input type="hidden" name="date" th:value="${date}">
 	<input type="hidden" name="total" th:value="${total}">
+
+
+	<span th:text="${taijyuu}" style="color:red"></span>
+	<br>
 	総カロリーの消費運動量を測定
 	<br>
 	体重<input type="text" name="taijyuu">㎏

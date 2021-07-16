@@ -139,11 +139,13 @@ public class MyPageCoentroller {
 
 	@RequestMapping(value = "/sokutei", method = RequestMethod.POST)
 	public ModelAndView sokutei(
-			@RequestParam("taijyuu") double taijyuu,
+			@RequestParam("taijyuu") String taijyuu,
 			@RequestParam("total") double Total,
 			@RequestParam("date") String date ,
 
 			ModelAndView mv) {
+		if(!taijyuu.equals("")) {
+			int num = Integer.parseInt(taijyuu);
 
 		Date d=Date.valueOf(date);
 
@@ -157,13 +159,33 @@ public class MyPageCoentroller {
 		}
 		double kekka=0;
 
-		kekka=Total/taijyuu;
+		kekka=Total/num;
 
 		mv.addObject("list", cal);
 		mv.addObject("date", d);
 		mv.addObject("kekka",String.format("%.2f",kekka ));
 		mv.addObject("total",total);
 			mv.setViewName("myPage");
+		}
+		else {
+			Date d=Date.valueOf(date);
+
+
+			List<Kcal> cal = kcalRepository.findByDate(d);
+
+
+			int total=0;
+			for (Kcal data :cal) {
+				total +=data.getKcalall();
+			}
+
+			mv.addObject("taijyuu", "体重を入力してください");
+
+			mv.addObject("list", cal);
+			mv.addObject("date", d);
+			mv.addObject("total",total);
+				mv.setViewName("myPage");
+		}
 
 		return mv;
 	}
