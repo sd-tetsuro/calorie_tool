@@ -12,7 +12,8 @@ public class MyMenuCoentroller {
 	@RequestMapping("/myMenuDetail")
 	public ModelAndView MyPage(
 			ModelAndView mv) {
-		mv.setViewName("myMenuDetail");
+//		mv.setViewName("redirect:/myMenu");
+//	mv.setViewName("myMenuDetail");
 
 		return mv;
 	}

@@ -182,8 +182,8 @@ public class KcalCalCoentroller {
 
 		}
 
-		mv.setViewName("kcalCal");
-		return kcalCal(mv);
+		mv.setViewName("redirect:/kcalCal");
+		return mv;
 	}
 
 }

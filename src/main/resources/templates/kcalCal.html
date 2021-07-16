@@ -24,8 +24,8 @@
 		</tr>
 		<tr th:each="selected:${SelectedFood}">
 			<td th:text="${selected.uname}"></td>
-			<td th:text="${selected.grams}" id="addGram"></td>
-			<td th:text="${selected.calResult}" id="addKcal"></td>
+			<td th:text="${selected.grams}+'g'" id="addGram"></td>
+			<td th:text="${selected.calResult}+'kcal'" id="addKcal"></td>
 			<td>
 				<form action="/deladd" method="post">
 					<input type="hidden" name="code" th:value="${selected.code}">
@@ -33,11 +33,13 @@
 				</form>
 			</td>
 
+
 		</tr>
 		<tr>
 			<td>合計</td>
-			<td th:text="${gramsSum}"></td>
-			<td th:text="${kcalSum}"></td>
+			<td th:text="${gramsSum}+'g'"></td>
+			<td th:text="${kcalSum}+'kcal'"></td>
+			<td></td>
 		</tr>
 	</table>
 	<form action="/myMenu" method="post">
@@ -53,7 +55,7 @@
 
 	<div id="category1" class="category">
 		<h2>
-			<a href="/findByCode?value=1">　　穀物　　</a> <a href="/findByCode?value=9">　　肉　　　</a>
+			<a href="/findByCode?value=1">穀物</a> <a href="/findByCode?value=9">肉</a>
 			<a href="/findByCode?value=8">魚</a> <a href="/findByCode?value=2">芋&でんぷん</a>
 			<a href="/findByCode?value=3">豆&ナッツ</a> <a href="/findByCode?value=4">野菜</a>
 		</h2>

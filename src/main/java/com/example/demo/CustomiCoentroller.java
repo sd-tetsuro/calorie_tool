@@ -48,7 +48,7 @@ public class CustomiCoentroller {
 
 				List<menu> m2 = menuRepository.findByUserid(userid);
 				mv.addObject("list", m2);
-				mv.setViewName("myMenu");
+				mv.setViewName("redirect:/myMenu");
 			}else {
 				mv.addObject("message", "未入力の項目があります。");
 

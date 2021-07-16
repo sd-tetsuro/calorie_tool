@@ -71,7 +71,7 @@ public class MenuRegiCoentroller {
 
 			List<menu> m2 = menuRepository.findByUserid(userid);
 			mv.addObject("list", m2);
-			mv.setViewName("myMenu");
+			mv.setViewName("redirect:/myMenu");
 		} else {
 			int dishcode = (int) session.getAttribute("dishcode");
 
@@ -93,7 +93,7 @@ public class MenuRegiCoentroller {
 			mv.addObject("SelectedFood", selectedFoods);
 
 			mv.addObject("message", "料理名を入力し、食材を追加してください。");
-			mv.setViewName("kcalCal");
+			mv.setViewName("redirect:/kcalCal");
 			List<food> list = foodRepository.findAll();
 			mv.addObject("list", list);
 
@@ -144,7 +144,7 @@ public class MenuRegiCoentroller {
 
 		List<menu> m2 = menuRepository.findByUserid(userid);
 		mv.addObject("list", m2);
-		mv.setViewName("myMenu");
+		mv.setViewName("redirect:/myMenu");
 
 		return mv;
 	}
@@ -177,7 +177,7 @@ public class MenuRegiCoentroller {
 
 		mv.addObject("SelectedFood", selectedFoods);
 
-		mv.setViewName("kcalCal");
+		mv.setViewName("redirect:/kcalCal");
 
 		return mv;
 	}
