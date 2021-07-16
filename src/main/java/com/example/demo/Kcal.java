@@ -40,12 +40,14 @@ public Kcal( Date date) {
 	super();
 	this.date = date;
 }
-public Kcal(  Date date, Time  time, String dishname, Integer kcalall) {
+public Kcal(  Date date, Time  time, String dishname, Integer kcalall, Integer usercode) {
 	super();
 	this.date = date;
 	this.time = time;
 	this.dishname = dishname;
 	this.kcalall = kcalall;
+	this.usercode = usercode;
+
 }
 public Integer getCode() {
 	return code;

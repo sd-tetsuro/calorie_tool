@@ -34,9 +34,9 @@ public class MyPageCoentroller {
 		 SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd" );
 
 		 String date = format.format(d);
+		 Integer usercord = (Integer) session.getAttribute("code");
 
-
-		List<Kcal> cal = kcalRepository.findByDate(d);
+		List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
 
 		int total=0;
@@ -67,13 +67,16 @@ public class MyPageCoentroller {
 
 		Date d=Date.valueOf(date);
 
-		Kcal kcal=new Kcal(d,t,dishname,kcalall);
+		Integer usercord = (Integer) session.getAttribute("code");
+
+		Kcal kcal=new Kcal(d,t,dishname,kcalall,usercord);
 
 		// 登録処理date d
 		kcalRepository.saveAndFlush(kcal);
 
 
-		List<Kcal> cal = kcalRepository.findByDate(d);
+
+		List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
 
 		int total=0;
@@ -113,9 +116,9 @@ public class MyPageCoentroller {
 		if(!date.equals("")) {
 		Date d=Date.valueOf(date);
 
+		Integer usercord = (Integer) session.getAttribute("code");
 
-		List<Kcal> cal = kcalRepository.findByDate(d);
-
+		List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
 		int total=0;
 		for (Kcal data :cal) {
@@ -149,8 +152,9 @@ public class MyPageCoentroller {
 
 		Date d=Date.valueOf(date);
 
+		Integer usercord = (Integer) session.getAttribute("code");
 
-		List<Kcal> cal = kcalRepository.findByDate(d);
+		List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
 
 		int total=0;
@@ -170,8 +174,9 @@ public class MyPageCoentroller {
 		else {
 			Date d=Date.valueOf(date);
 
+			Integer usercord = (Integer) session.getAttribute("code");
 
-			List<Kcal> cal = kcalRepository.findByDate(d);
+			List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
 
 			int total=0;
