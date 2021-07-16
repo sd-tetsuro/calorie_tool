@@ -55,8 +55,9 @@ Date d = Date.valueOf(LocalDate.now().toString());
 
 					 String date = format.format(d);
 
+					 Integer usercord = (Integer) session.getAttribute("code");
 
-						List<Kcal> cal = kcalRepository.findByDate(d);
+						List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
 
 						int total=0;
