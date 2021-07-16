@@ -61,7 +61,7 @@ public class MyPageCoentroller {
 			@RequestParam("calendar") String date,
 			ModelAndView mv) {
 
-
+		if(!time.equals("")&&!date.equals("")) {
 		time+=":00";
 		Time t=Time.valueOf(time);
 
@@ -81,10 +81,6 @@ public class MyPageCoentroller {
 			total +=data.getKcalall();
 		}
 
-
-
-
-
 			mv.addObject("list", cal);
 			mv.addObject("date", d);
 			mv.addObject("total", total);
@@ -92,6 +88,19 @@ public class MyPageCoentroller {
 
 
 		mv.setViewName("myPage");
+
+		}
+		else {
+			mv.addObject("message", "日時が未入力です。");
+			mv.addObject("kcalall",kcalall);
+			mv.addObject("dishname",dishname);
+			mv.addObject("time",time);
+			mv.addObject("date",date);
+			mv.setViewName("confirm");
+		}
+
+
+
 
 		return mv;
 	}
@@ -101,7 +110,7 @@ public class MyPageCoentroller {
 			@RequestParam("day") String date,
 			ModelAndView mv) {
 
-
+		if(!date.equals("")) {
 		Date d=Date.valueOf(date);
 
 
@@ -117,10 +126,14 @@ public class MyPageCoentroller {
 			mv.addObject("date", d);
 			mv.addObject("total", total);
 			mv.setViewName("myPage");
+			mv.setViewName("myPage");
+		}
+		else {
 
+			mv.addObject("message", "日付が未入力です。");
 
-		mv.setViewName("myPage");
-
+			mv.setViewName("myPage");
+		}
 		return mv;
 	}
 

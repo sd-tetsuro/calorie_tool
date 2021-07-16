@@ -6,19 +6,19 @@
 </head>
 <body>
 <h1>確認画面</h1>
-
+<p><span th:text="${message}" style="color:red"></span></p>
 
 <table border="1">
 <tr>
 		<th>メニュー</th>
 			<td th:text="${dishname}"></td>
-		<td th:text="${kcalall}">kcal</td>
+		<td th:text="${kcalall}"></td>
 		<td>
 		<form action="/myPage" method="post">
 		<input type="hidden" name="dishname" th:value="${dishname}">
 		<input type="hidden" name="kcalall" th:value="${kcalall}">
-		<input type="time" name="time">
-	<input type="date" name="calendar">
+		<input type="time" name="time" th:value="${time}">
+	<input type="date" name="calendar" th:value="${date}">
 	<input type="submit" value="確定">
 	</form>
 	</td>

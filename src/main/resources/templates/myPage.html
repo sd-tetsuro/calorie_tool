@@ -13,9 +13,9 @@
 	ようこそ<span th:text="${session.login}"></span>さん。
 ユーザーコード<span th:text="${session.code}"></span>
 
-
+<p><span th:text="${message}" style="color:red"></span></p>
 <form action="/day" method=post>
-<h1><input type="date" name="day">
+<h1><input type="date" name="day" th:value="${date}">
 <input type="submit" value="日付変更"></h1>
 </form>
 <h2>
@@ -24,7 +24,7 @@
 		<th>メニュー</th><th>カロリー</th><th>時間</th>
 	</tr>
 	<tr th:each="kcal:${list}">
-		<td th:text="${kcal.dishname}"></td>
+		<td th:text="${kcal.dishname}" ></td>
 		<td th:text="${kcal.kcalall}">kcal</td>
 		<td th:text="${kcal.time}"></td>
 	</tr>
