@@ -70,6 +70,11 @@ public class KcalCalCoentroller {
 			session.setAttribute("dishcode", 1);
 		}
 
+//		String name = user.getName();
+//
+//		session.setAttribute("login", name);
+
+
 		mv.addObject("list", list);
 
 		mv.setViewName("kcalCal");

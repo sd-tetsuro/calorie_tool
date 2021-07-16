@@ -40,6 +40,24 @@ public class sarchController {
 			mv.setViewName("sarch");
 			}else {
 				List<food> list = foodRepository.findAll();
+				int dishcode = (int) session.getAttribute("dishcode");
+
+				session.setAttribute("dishcode", dishcode);
+				List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+				int gramsSum=0;
+				double kcalSum = 0;
+				for (SelectedFood data :selectedFoods) {
+					gramsSum += data.getGrams();
+					kcalSum +=data.getCalResult();
+				}
+
+				mv.addObject("gramsSum", gramsSum);
+				mv.addObject("kcalSum", kcalSum);
+
+
+
+				mv.addObject("SelectedFood", selectedFoods);
 
 				mv.addObject("message", "検索が未入力です");
 				mv.addObject("list", list);

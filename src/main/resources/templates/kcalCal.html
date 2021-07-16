@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>
-		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${login}"></span>さん。
+		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${session.login}"></span>さん。
 
 	</h1>
 
@@ -51,20 +51,20 @@
 	</p>
 
 
-	<div>
+	<div id="category1" class="category">
 		<h2>
-			<a href="/findByCode?value=1">穀物</a> <a href="/findByCode?value=9">肉</a>
+			<a href="/findByCode?value=1">　　穀物　　</a> <a href="/findByCode?value=9">　　肉　　　</a>
 			<a href="/findByCode?value=8">魚</a> <a href="/findByCode?value=2">芋&でんぷん</a>
 			<a href="/findByCode?value=3">豆&ナッツ</a> <a href="/findByCode?value=4">野菜</a>
 		</h2>
 	</div>
-	<span>
+	<div id="category2" class="category">
 		<h2>
 			<a href="/findByCode?value=5">果実</a> <a href="/findByCode?value=6">きのこ</a>
 			<a href="/findByCode?value=7">海藻</a> <a href="/findByCode?value=10">卵&乳製品</a>
 			<a href="/findByCode?value=11">調味料</a><a href="/kcalCal">全件表示</a>
 		</h2>
-	</span>
+	</div>
 	<form action="/sarch" method="post">
 		<input type="text" name="name" class="botton"> <input
 			type="submit" value="検索" class="botton"> <br>

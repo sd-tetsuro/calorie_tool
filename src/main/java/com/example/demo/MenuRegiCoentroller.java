@@ -61,7 +61,7 @@ public class MenuRegiCoentroller {
 
 			ModelAndView mv) {
 		Integer userid = (Integer) session.getAttribute("code");
-		if (!menu.equals("")) {
+		if (!menu.equals("")&&kcalall>0) {
 			int dishcode = (int) session.getAttribute("dishcode");
 			dishcode = dishcode++;
 
@@ -73,7 +73,26 @@ public class MenuRegiCoentroller {
 			mv.addObject("list", m2);
 			mv.setViewName("myMenu");
 		} else {
-			mv.addObject("message", "料理名を入力してください。");
+			int dishcode = (int) session.getAttribute("dishcode");
+
+			session.setAttribute("dishcode", dishcode);
+			List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
+
+			int gramsSum=0;
+			double kcalSum = 0;
+			for (SelectedFood data :selectedFoods) {
+				gramsSum += data.getGrams();
+				kcalSum +=data.getCalResult();
+			}
+
+			mv.addObject("gramsSum", gramsSum);
+			mv.addObject("kcalSum", kcalSum);
+
+
+
+			mv.addObject("SelectedFood", selectedFoods);
+
+			mv.addObject("message", "料理名を入力し、食材を追加してください。");
 			mv.setViewName("kcalCal");
 			List<food> list = foodRepository.findAll();
 			mv.addObject("list", list);

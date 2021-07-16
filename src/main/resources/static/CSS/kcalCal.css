@@ -6,3 +6,17 @@ body{
 #botton{
     text-align: right;
 }
+
+#category1{
+	position:absolute;
+	top:30%;
+	left:38%;
+}
+#category2{
+	position:absolute;
+	top:36%;
+	left:38%;
+}
+.category{
+  width:60%;
+}
