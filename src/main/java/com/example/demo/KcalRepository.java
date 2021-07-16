@@ -11,5 +11,6 @@ public interface KcalRepository  extends JpaRepository<Kcal,
 Integer> {
 	List<Kcal> findByDate(Date date);
 
+
 	List<Kcal> findByKcalall(Integer kcalall);
 }
