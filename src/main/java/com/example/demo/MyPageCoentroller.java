@@ -137,4 +137,34 @@ public class MyPageCoentroller {
 		return mv;
 	}
 
+	@RequestMapping(value = "/sokutei", method = RequestMethod.POST)
+	public ModelAndView sokutei(
+			@RequestParam("taijyuu") double taijyuu,
+			@RequestParam("total") double Total,
+			@RequestParam("date") String date ,
+
+			ModelAndView mv) {
+
+		Date d=Date.valueOf(date);
+
+
+		List<Kcal> cal = kcalRepository.findByDate(d);
+
+
+		int total=0;
+		for (Kcal data :cal) {
+			total +=data.getKcalall();
+		}
+		double kekka=0;
+
+		kekka=Total/taijyuu;
+
+		mv.addObject("list", cal);
+		mv.addObject("date", d);
+		mv.addObject("kekka",String.format("%.2f",kekka ));
+		mv.addObject("total",total);
+			mv.setViewName("myPage");
+
+		return mv;
+	}
 }

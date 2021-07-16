@@ -29,7 +29,32 @@
 		<td th:text="${kcal.time}"></td>
 	</tr>
 	</table></h2>
-	<h2>Total　<span th:text="${total}"></span>kcal</h2>
+	<h2>
+	Total　<span th:text="${total}"></span>kcal
+	</h2>
+	<br>
+
+
+	<form action="/sokutei" method=post>
+	<input type="hidden" name="date" th:value="${date}">
+	<input type="hidden" name="total" th:value="${total}">
+	総カロリーの消費運動量を測定
+	<br>
+	体重<input type="text" name="taijyuu">㎏
+	<input type="submit" value="測定">
+	</form>
+
+	<br><table border="1">
+	<h2><tr>
+
+	<td>測定結果</td><td></td>
+	</tr>
+	<tr>
+	<td><span th:text="${kekka}"></span></td><td>km</td>
+	</tr>
+	</h2>
+</table>
+
 
 
  <div th:replace="footer :: footer_fragment"></div>
