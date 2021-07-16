@@ -33,11 +33,12 @@ public class CustomiCoentroller {
 	@RequestMapping(value = "/custom/regi", method = RequestMethod.POST)
 	public ModelAndView customRegi(
 			@RequestParam("menu") String menu,
-			@RequestParam("kcalall") Integer kcalall,
+			@RequestParam( name="kcalall",defaultValue="0") Integer kcalall,
 			ModelAndView mv) {
 
 			Integer userid = (Integer) session.getAttribute("code");
-			if (!menu.equals("")) {
+
+			if (!menu.equals("")&&kcalall>0) {
 				int dishcode = (int) session.getAttribute("dishcode");
 				dishcode = dishcode++;
 
@@ -48,6 +49,11 @@ public class CustomiCoentroller {
 				List<menu> m2 = menuRepository.findByUserid(userid);
 				mv.addObject("list", m2);
 				mv.setViewName("myMenu");
+			}else {
+				mv.addObject("message", "未入力の項目があります。");
+
+				mv.setViewName("custom");
+
 			}
 		return mv;
 	}
