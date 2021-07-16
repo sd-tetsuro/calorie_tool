@@ -39,8 +39,11 @@ public class sarchController {
 			mv.addObject("keyword",keyword);
 			mv.setViewName("sarch");
 			}else {
+				List<food> list = foodRepository.findAll();
 
 				mv.addObject("message", "検索が未入力です");
+				mv.addObject("list", list);
+
 				mv.setViewName("kcalCal");
 			}
 

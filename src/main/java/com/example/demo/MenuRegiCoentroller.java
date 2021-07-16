@@ -75,6 +75,9 @@ public class MenuRegiCoentroller {
 		} else {
 			mv.addObject("message", "料理名を入力してください。");
 			mv.setViewName("kcalCal");
+			List<food> list = foodRepository.findAll();
+			mv.addObject("list", list);
+
 
 		}
 		return mv;
@@ -118,7 +121,9 @@ public class MenuRegiCoentroller {
 	) {
 		menuRepository.deleteById(code);
 
-		List<menu> m2 = menuRepository.findAll();
+		Integer userid = (Integer) session.getAttribute("code");
+
+		List<menu> m2 = menuRepository.findByUserid(userid);
 		mv.addObject("list", m2);
 		mv.setViewName("myMenu");
 

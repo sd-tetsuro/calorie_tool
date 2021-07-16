@@ -113,9 +113,9 @@ public class KcalCalCoentroller {
 	@RequestMapping("/addFood")
 	public ModelAndView add(
 			ModelAndView mv,
-			@RequestParam("uname") String uname,
+			@RequestParam(name="uname",defaultValue="---") String uname,
 			@RequestParam("calResult") double calResult,
-			@RequestParam("grams") int grams
+			@RequestParam(name="grams",defaultValue="0") int grams
 
 	) {
 /////////////リストに合計値を入力////////////////////////////
@@ -141,8 +141,11 @@ public class KcalCalCoentroller {
 		//1この情報をDBに登録
 		int dishcode = (int) session.getAttribute("dishcode");
 
+
+
 		SelectedFood selectedFood = new SelectedFood(uname, (int) calResult, grams, dishcode);
 
+		if(!uname.equals("---")&&grams>0) {
 		selectedFoodRepository.saveAndFlush(selectedFood);
 		//2DBから登録食材の一覧を取得
 		List<SelectedFood> selectedFoods = selectedFoodRepository.findAllByDishCode(dishcode);
@@ -163,6 +166,17 @@ public class KcalCalCoentroller {
 		mv.addObject("uname", uname);
 		mv.addObject("calResult", calResult);
 		mv.addObject("grams", grams);
+		}else {
+			List<food> list = foodRepository.findAll();
+
+			mv.addObject("message", "食材を追加してください");
+			mv.addObject("list", list);
+
+
+
+
+		}
+
 		mv.setViewName("kcalCal");
 		return kcalCal(mv);
 	}
