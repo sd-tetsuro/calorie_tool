@@ -27,7 +27,10 @@
 		<td th:text="${kcal.dishname}" ></td>
 		<td th:text="${kcal.kcalall}">kcal</td>
 		<td th:text="${kcal.time}"></td>
-	</tr>
+		<td><form action="/delPage" method="post">
+					<input type="hidden" name="code" th:value="${kcal.code}">
+					<input type="hidden" name="date" th:value="${kcal.date}">
+					<input type="submit" value="Delete"></form></td>
 	</table></h2>
 	<h2>
 	Total　<span th:text="${total}"></span>kcal

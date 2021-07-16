@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -37,6 +40,20 @@ public class ConfirmCoentroller {
 		List<menu> menu = menuRepository.findByDishnameAndKcalall(dishname,kcalall);
 
 
+		//Time t=Time.valueOf(LocalTime.now().toString());
+
+		  //SimpleDateFormat format1 = new SimpleDateFormat("h/m");
+
+		Date d = Date.valueOf(LocalDate.now().toString());
+
+		 SimpleDateFormat format = new SimpleDateFormat( "yyyy/MM/dd" );
+
+		 String date = format.format(d);
+
+		 //String time = format1.format(t);
+
+		//mv.addObject("time",t);
+		mv.addObject("date", d);
 		mv.addObject("dishname", dishname);
 		mv.addObject("kcalall", kcalall);
 		mv.setViewName("confirm");

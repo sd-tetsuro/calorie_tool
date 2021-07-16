@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -191,6 +192,34 @@ public class MyPageCoentroller {
 			mv.addObject("total",total);
 				mv.setViewName("myPage");
 		}
+
+		return mv;
+	}
+
+	@PostMapping("/delPage")
+	public ModelAndView del(
+			ModelAndView mv,
+			@RequestParam("code")  int code,
+			@RequestParam("date") String date
+
+	) {
+		kcalRepository.deleteById(code);
+
+		Integer usercord = (Integer) session.getAttribute("code");
+
+		Date d=Date.valueOf(date);
+
+		List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
+
+		int total=0;
+		for (Kcal data :cal) {
+			total +=data.getKcalall();
+		}
+
+			mv.addObject("list", cal);
+			mv.addObject("date", d);
+			mv.addObject("total", total);
+			mv.setViewName("myPage");
 
 		return mv;
 	}
