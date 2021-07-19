@@ -119,7 +119,7 @@ public class KcalCalCoentroller {
 	public ModelAndView add(
 			ModelAndView mv,
 			@RequestParam(name="uname",defaultValue="---") String uname,
-			@RequestParam(name="calResult",defaultValue="0" ) int calResult,
+			@RequestParam(name="calResult",defaultValue="0" ) double calResult,
 			@RequestParam(name="grams",defaultValue="0") int grams
 
 	) {
