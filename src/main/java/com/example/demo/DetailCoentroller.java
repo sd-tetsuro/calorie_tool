@@ -27,6 +27,23 @@ public class DetailCoentroller {
 
 	@Autowired
 	private menuRepository menuRepository;
+//
+//	@RequestMapping("/detail/{code}")
+//	public ModelAndView menudetail(
+//			@PathVariable(name = "code") Integer code,
+//			ModelAndView mv) {
+//
+//		Optional<menu> m = menuRepository.findById(code);
+//		menu m2 = m.get();
+//		Integer dishcode = m2.getDishcode();
+//
+//		List<SelectedFood> list = selectedFoodRepository.findByDishCode(dishcode);
+//		mv.addObject("m2", m2);
+//		mv.addObject("menu", list);
+//		mv.setViewName("myMenuDetail");
+//		return mv;
+//	}
+
 
 	@RequestMapping("/detail/{code}")
 	public ModelAndView menudetail(
@@ -37,10 +54,15 @@ public class DetailCoentroller {
 		menu m2 = m.get();
 		Integer dishcode = m2.getDishcode();
 
+		Integer userid = (Integer) session.getAttribute("code");
+		List<menu> m3 = menuRepository.findByUserid(userid);
+		mv.addObject("list", m3);
+
+
 		List<SelectedFood> list = selectedFoodRepository.findByDishCode(dishcode);
 		mv.addObject("m2", m2);
 		mv.addObject("menu", list);
-		mv.setViewName("myMenuDetail");
+		mv.setViewName("myMenu");
 		return mv;
 	}
 

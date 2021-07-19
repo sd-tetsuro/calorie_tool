@@ -20,7 +20,7 @@
 		</tr>
 		<tr th:each="m2:${list}" name="list">
 		<td><a th:href="'/detail/'+${m2.code}" th:text="${m2.dishname}"></a>
-			<td th:text="${m2.kcalall}"></td>
+			<td th:text="${m2.kcalall}+'kcal'"></td>
 			<td><form action="/confirm" method="post">
 					<input type="hidden" name="dishname" th:value="${m2.dishname}">
 					<input type="hidden" name="kcalall" th:value="${m2.kcalall}">
@@ -34,18 +34,25 @@
 
 		</tr>
 	</table>
-<!-- 	<h1><span th:text="${m2.dishname}"></span></h1>
+
+	<th:block th:if="${menu != null}">
+	<h1><span th:text="${m2.dishname}"></span></h1>
 
 <table border="1">
+<tr>
+<th>食材</th>
+<th>量</th>
+<th>カロリー</th>
+</tr>
+
 	<tr th:each="food:${menu}">
 	<td th:text="${food.uname}"></td>
-	<td th:text="${food.grams}"></td>
-	<td th:text="${food.calResult}"></td>
+	<td th:text="${food.grams}+'gram'"></td>
+	<td th:text="${food.calResult}+'kcal'"></td>
 
 	</tr>
 </table>
- -->
-
+</th:block>
 
 </body>
 </html>
