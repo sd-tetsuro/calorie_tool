@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="/CSS/sarch.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>検索結果</title>
 </head>
 <body>
-<h1>検索結果</h1>
+<h2>検索結果</h2>
 
-“<span th:text="${keyword}"></span>”の検索結果
+<br>
 
 
-	<table border="1">
+
+<table border="1">
 	<tr>
-		<th>検索一覧</th>
+		<th>検索一覧</th><th>“<span th:text="${keyword}"></span>”の検索結果</th>
 		</tr>
 	<tr th:each="food:${list}" >
 	<td th:text="${food.uname}" ></td>
-	<td><a th:href ="'/OK/'+${food.uname}">OK</a></td>
+	<td><a th:href ="'/OK/'+${food.uname}" class="btn btn--yellow btn--cubic">OK</a></td>
 	</tr>
 </table>
 
 
-<a href="/kcalCal">メニュー登録へ</a>
+<a href="/kcalCal" class="btn btn--yellow btn--cubic">メニュー登録へ</a>
 </body>
 </html>

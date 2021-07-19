@@ -22,7 +22,7 @@
 <input type="submit" value="日付変更"></h1>
 </form>
 <h2>
-	<table border="1">
+	<table border="1" id="table1">
 	<tr>
 		<th>メニュー</th><th>カロリー</th><th colspan="2">時間</th>
 	</tr>
@@ -48,11 +48,11 @@
 
 
 	<br>
-	<h3>
+	<h4 id="undou">
 	総カロリーの消費運動量を測定
-	</h3>
+	</h4>
 	<br>
-	<h2>
+	<h2 id="taijyuu">
 	<span th:text="${taijyuu}" style="color:red"></span>
 	<br>
 	体重<input type="text" name="taijyuu" placeholder="kg">　<input type="submit" value="測定">
@@ -60,7 +60,7 @@
 
 	</form>
 <h2>
-	<br><table border="1">
+	<br><table border="1" id="table2">
 	<tr>
 
 	<th>運動距離（ランニング）</th><th></th>
