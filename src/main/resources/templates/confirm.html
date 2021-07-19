@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="/CSS/confirm.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>確認画面</title>
 </head>
+
 <body>
-<h1>確認画面</h1>
+<header th:replace="hedder"></header>
+<h3>確認画面</h3>
 <p><span th:text="${message}" style="color:red"></span></p>
 
 <table border="1">
+	<tr>
+		<th>メニュー</th><th>カロリー</th><th>時間・日付</th>
+	</tr>
 <tr>
-		<th>メニュー</th>
 			<td th:text="${dishname}"></td>
 		<td th:text="${kcalall}"></td>
 		<td>
@@ -25,10 +30,9 @@
 </tr>
 
 </table>
+<br>
 
+<a href="/myMenu" class="btn btn--yellow btn--cubic">戻る</a>
 
-<a href="/myMenu">戻る</a>
-
-<div th:replace="footer :: footer_fragment"></div>
 </body>
 </html>
