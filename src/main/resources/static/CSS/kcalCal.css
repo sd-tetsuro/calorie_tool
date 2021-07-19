@@ -21,7 +21,8 @@ body {
 #head {
 	position: relative;
 	top: 0px;
-	left: 0px;
+	left: 10px;
+	font-size: 40px
 }
 
 .user {
@@ -36,9 +37,17 @@ body {
 }
 
 #del {
-	margin-left: auto;
-	width: 100px;
-	padding: 10px;
+	background: transparent; /* 背景の灰色を消す */
+	border:none;
+	 text-decoration: none;
+  font-weight: bold;
+  font-size: 37px;
+  color: #ffffff;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+}
+#del:active{
+	 top: 4px;
+  text-shadow: none;
 }
 
 .search {
@@ -75,16 +84,17 @@ body {
 #category1 {
 	position: relative;
 	top: 20px;
-	left: 500px;
 	display: flex;
+	background: red;
 
 }
 
 #category2 {
+
 	position: relative;
 	top: 25px;
-	left: 500px;
 	display: flex;
+	text-align: center;
 }
 
 .category {
@@ -117,7 +127,7 @@ a {
 #custom {
 	position: relative;
 	top: 0px;
-	left: 1200px;
+	left: 800px;
 }
 
 .regi {
@@ -128,6 +138,8 @@ a {
 
 .a {
 	margin-left: auto;
+	margin-right:auto;
+	text-align:center;
 margin: 30px;
 }
 
@@ -135,6 +147,8 @@ table {
 	border-collapse: separate;
 	border-spacing: 5px;
 	width: 100%;
+		border:none;
+
 }
 
 table th, table td {

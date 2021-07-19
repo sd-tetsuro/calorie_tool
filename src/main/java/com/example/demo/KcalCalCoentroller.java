@@ -119,7 +119,7 @@ public class KcalCalCoentroller {
 	public ModelAndView add(
 			ModelAndView mv,
 			@RequestParam(name="uname",defaultValue="---") String uname,
-			@RequestParam("calResult") double calResult,
+			@RequestParam(name="calResult",defaultValue="0" ) int calResult,
 			@RequestParam(name="grams",defaultValue="0") int grams
 
 	) {
@@ -148,7 +148,7 @@ public class KcalCalCoentroller {
 
 
 
-		SelectedFood selectedFood = new SelectedFood(uname, (int) calResult, grams, dishcode);
+		SelectedFood selectedFood = new SelectedFood(uname,  calResult, grams, dishcode);
 
 		if(!uname.equals("---")&&grams>0) {
 		selectedFoodRepository.saveAndFlush(selectedFood);
@@ -171,14 +171,18 @@ public class KcalCalCoentroller {
 		mv.addObject("uname", uname);
 		mv.addObject("calResult", calResult);
 		mv.addObject("grams", grams);
+		}else if(calResult==0){
+			List<food> list = foodRepository.findAll();
+
+			mv.addObject("message", "食材を追加してください");
+			mv.addObject("list", list);
+			mv.setViewName("kcalCal");
 		}else {
 			List<food> list = foodRepository.findAll();
 
 			mv.addObject("message", "食材を追加してください");
 			mv.addObject("list", list);
-
-
-
+			mv.setViewName("kcalCal");
 
 		}
 
