@@ -12,7 +12,7 @@
 
 	<h3>マイメニュー</h3>
 
-	<table border="1">
+	<table border="1" id="table1">
 		<tr>
 			<th>メニュー</th>
 			<th>カロリー</th>
@@ -36,9 +36,9 @@
 	</table>
 
 	<th:block th:if="${menu != null}">
-	<h1><span th:text="${m2.dishname}"></span></h1>
+	<h1><span th:text="${m2.dishname}" id="dishname"></span></h1>
 
-<table border="1">
+<table border="1"id="table2">
 <tr>
 <th>食材</th>
 <th>量</th>

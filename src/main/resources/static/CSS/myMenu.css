@@ -71,3 +71,26 @@ table{
 input{
 	text-align: right;
 }
+
+#table1 {
+	position: relative;
+	top: 25px;
+	left: 100px;
+	width: 500px;
+		height:300px;
+
+}
+
+#table2 {
+	position: relative;
+	top: -215px;
+	left: 700px;
+	width: 500px;
+}
+
+#dishname{
+		position: relative;
+	top: -220px;
+	left: 700px;
+
+}
