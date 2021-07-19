@@ -8,12 +8,14 @@
 <link href="/CSS/kcalCal.css" rel="stylesheet">
 </head>
 <body>
-	<h1>
-		メニュー登録（カロリー計算） <br> こんにちは、<span th:text="${session.login}"></span>さん。
+<header th:replace="hedder">
+</header>
 
-	</h1>
+		<span id="head">メニュー登録（カロリー計算）</span>
 
-	<a href="/custom" id="botton">カスタム入力</a>
+
+
+	<a href="/custom" id="custom">カスタム入力</a>
 
 	<table border="1" id="table1">
 		<tr>
@@ -29,7 +31,7 @@
 			<td>
 				<form action="/deladd" method="post">
 					<input type="hidden" name="code" th:value="${selected.code}">
-					<input type="submit" value="Delete">
+					<input type="submit" value="Delete" id="del">
 				</form>
 			</td>
 
@@ -45,8 +47,8 @@
 	<form action="/myMenu" method="post">
 
 		<input type="hidden" name="kcalall" th:value="${kcalSum}"> <input
-			type="text" name="menu"> <input type="submit" value="登録"
-			class="botton">
+			type="text" name="menu" class="regi"> <input type="submit" value="登録"
+			class="regi">
 	</form>
 	<p>
 		<span th:text="${message}" style="color: red"></span>
@@ -55,21 +57,21 @@
 
 	<div id="category1" class="category">
 		<h2>
-			<a href="/findByCode?value=1">穀物</a> <a href="/findByCode?value=9">肉</a>
-			<a href="/findByCode?value=8">魚</a> <a href="/findByCode?value=2">芋&でんぷん</a>
-			<a href="/findByCode?value=3">豆&ナッツ</a> <a href="/findByCode?value=4">野菜</a>
+			<a href="/findByCode?value=1" class="a">穀物</a> <a href="/findByCode?value=9" class="a">肉</a>
+			<a href="/findByCode?value=8" class="a">魚</a> <a href="/findByCode?value=2" class="a">芋&でんぷん</a>
+			<a href="/findByCode?value=3" class="a">豆&ナッツ</a> <a href="/findByCode?value=4" class="a">野菜</a>
 		</h2>
 	</div>
 	<div id="category2" class="category">
 		<h2>
-			<a href="/findByCode?value=5">果実</a> <a href="/findByCode?value=6">きのこ</a>
-			<a href="/findByCode?value=7">海藻</a> <a href="/findByCode?value=10">卵&乳製品</a>
-			<a href="/findByCode?value=11">調味料</a><a href="/kcalCal">全件表示</a>
+			<a href="/findByCode?value=5" class="a">果実</a> <a href="/findByCode?value=6" class="a">きのこ</a>
+			<a href="/findByCode?value=7" class="a">海藻</a> <a href="/findByCode?value=10" class="a">卵&乳製品</a>
+			<a href="/findByCode?value=11" class="a">調味料</a><a href="/kcalCal" class="a">全件表示</a>
 		</h2>
 	</div>
 	<form action="/sarch" method="post">
-		<input type="text" name="name" class="botton"> <input
-			type="submit" value="検索" class="botton"> <br>
+		<input type="text" name="name" class="search"> <input
+			type="submit" value="SEARCH" class="search"> <br>
 	</form>
 
 	<table border="1" id="table2">
@@ -97,11 +99,8 @@
 		<input type="hidden" name="uname" id="uname"> <input
 			type="hidden" name="calResult" id="calResult"> <input
 			type="hidden" name="grams" id="grams"> <input type="submit"
-			value="追加" id="add"> <br>
+			value="ADD" id="add"> <br>
 	</form>
-
-
-	<div th:replace="footer :: footer_fragment"></div>
 
 
 

@@ -6,6 +6,9 @@
 <link href="/CSS/myPage.css" rel="stylesheet">
 </head>
 <body>
+<header th:replace="hedder">
+</header>
+
 	<h2><br>
 	<span th:text="${date}"></span>　の食事カロリー
 	</h2>
@@ -64,7 +67,6 @@
 
 
 
- <div th:replace="footer :: footer_fragment"></div>
 
 </body>
 </html>

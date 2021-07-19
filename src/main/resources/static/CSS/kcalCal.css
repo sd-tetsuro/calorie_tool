@@ -1,42 +1,154 @@
 @charset "UTF-8";
-body{
-	margin: 0 auto;
-  height:100%;
-}
-#botton{
-    text-align: right;
+
+body {
+	background: linear-gradient(-45deg, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
-#category1{
-	position:relative;
-	top:120px;
-	left:500px;
-}
-#category2{
-	position:relative;
-	top:140px;
-	left:500px;
-}
-.category{
-  width:60%;
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-#table1{
-	position:relative;
-	top:100px;
-	left:500px;
+#head {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+.user {
+	position: relative;
+	top: 10px;
+	left: 500px;
+	font-size: 50px
+}
+
+#botton {
+	text-align: right;
+}
+
+#del {
+	margin-left: auto;
+	width: 100px;
+	padding: 10px;
+}
+
+.search {
+	position: relative;
+	top: 40px;
+	left: 900px;
+}
+
+#add {
+	position: relative;
+	top: 70px;
+	left: 900px;
+	width: 200px;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 30px;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #FFF;
+	background: #fd9535; /*色*/
+	border-radius: 4px; /*角の丸み*/
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
+		rgba(0, 0, 0, 0.05);
+	font-weight: bold;
+	border: solid 2px #d27d00; /*線色*/
+}
+
+#add:active {
+	/*押したとき*/
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+#category1 {
+	position: relative;
+	top: 20px;
+	left: 500px;
+	display: flex;
+	background: red;
+}
+
+#category2 {
+	position: relative;
+	top: 25px;
+	left: 500px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.category {
+	width: 100%;
+}
+
+#table1 {
+	position: relative;
+	top: 0px;
+	left: 500px;
 	width: 500px;
 }
 
-#table2{
-	position:relative;
-	top:160px;
-	left:500px;
+#table2 {
+	position: relative;
+	top: 40px;
+	left: 400px;
+	width: 800px;
 }
 
-td{
-	height:40px;
+td {
+	height: 40px;
 }
-a{
-	text-decoration:none;
+
+a {
+	text-decoration: none;
+}
+
+#custom {
+	position: relative;
+	top: 0px;
+	left: 1200px;
+}
+
+.regi {
+	position: relative;
+	top: 20px;
+	left: 900px;
+}
+
+.a {
+	margin-left: auto;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 5px;
+	width: 100%;
+}
+
+table th, table td {
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px 0;
+}
+
+table th {
+	background-color: #c79852;
+	color: white;
+	border: solid 1px #927141;
+}
+
+table td {
+	background-color: #e4d4bc;
+	border: solid 1px #af9d85;
 }
