@@ -32,7 +32,7 @@ td{
 }
 
 
-  h4 {
+  h3 {
   position: relative;
   display: inline-block;
   margin: 1rem 0 1rem -10px;
@@ -44,7 +44,7 @@ td{
   box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
 }
 
-h4:before {
+h3:before {
   position: absolute;
   bottom: -10px;
   left: 0;
@@ -78,7 +78,7 @@ input{
 }
 #undou {
 	position: relative;
-	top: -665px;
+	top: -645px;
 	left: 600px;
 	width: 500px;
 }

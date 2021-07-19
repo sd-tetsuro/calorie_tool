@@ -9,12 +9,10 @@
 <header th:replace="hedder">
 </header>
 
-	<h4>
+	<h3>
 	<span th:text="${date}"></span>　の食事カロリー
-	</h4>
+	</h3>
 <br>
-	ようこそ<span th:text="${session.login}"></span>さん。
-ユーザーコード<span th:text="${session.code}"></span>
 
 <p><span th:text="${message}" style="color:red"></span></p>
 <form action="/day" method=post>
@@ -48,9 +46,9 @@
 
 
 	<br>
-	<h4 id="undou">
+	<h3 id="undou">
 	総カロリーの消費運動量を測定
-	</h4>
+	</h3>
 	<br>
 	<h2 id="taijyuu">
 	<span th:text="${taijyuu}" style="color:red"></span>

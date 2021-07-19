@@ -104,8 +104,8 @@ a.btn--yellow:hover {
 
 #add {
 	position: relative;
-	top: 70px;
-	left: 900px;
+	top: -40px;
+	left: 1250px;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
@@ -131,16 +131,19 @@ a.btn--yellow:hover {
 	position: relative;
 
 	display: flex;
-text-align: rigft;
+text-align: center;
+left:400px;
+
 
 }
 
 #category2 {
 
 	position: relative;
-
+top:-20px;
 	display: flex;
-	text-align: rigft;
+	text-align: center;
+	left:400px;
 }
 
 .category {
