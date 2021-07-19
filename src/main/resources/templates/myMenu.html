@@ -10,12 +10,13 @@
 <header th:replace="hedder">
 </header>
 
-	<h1>マイメニュー</h1>
+	<h3>マイメニュー</h3>
 
 	<table border="1">
 		<tr>
-			<td>メニュー</td>
-			<td>カロリー</td>
+			<th>メニュー</th>
+			<th>カロリー</th>
+			<th colspan="2"></th>
 		</tr>
 		<tr th:each="m2:${list}" name="list">
 		<td><a th:href="'/detail/'+${m2.code}" th:text="${m2.dishname}"></a>
