@@ -82,15 +82,15 @@ input{
 }
 
 #table2 {
-	position: relative;
-	top: -215px;
-	left: 700px;
+	position: absolute;
+	top: 250px;
+	left: 800px;
 	width: 500px;
 }
 
 #dishname{
-		position: relative;
-	top: -220px;
-	left: 700px;
+		position: absolute;
+	top: 200px;
+	left: 800px;
 
 }
