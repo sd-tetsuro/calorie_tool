@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>本日のカロリー</title>
+<title>マイページ</title>
 <link href="/CSS/myPage.css" rel="stylesheet">
 </head>
 <body>
 <header th:replace="hedder">
 </header>
 
-	<h2>
+	<h4>
 	<span th:text="${date}"></span>　の食事カロリー
-	</h2>
-
+	</h4>
+<br>
 	ようこそ<span th:text="${session.login}"></span>さん。
 ユーザーコード<span th:text="${session.code}"></span>
 
@@ -24,7 +24,7 @@
 <h2>
 	<table border="1">
 	<tr>
-		<th>メニュー</th><th>カロリー</th><th>時間</th>
+		<th>メニュー</th><th>カロリー</th><th colspan="2">時間</th>
 	</tr>
 	<tr th:each="kcal:${list}">
 		<td th:text="${kcal.dishname}" ></td>
@@ -46,29 +46,31 @@
 	<input type="hidden" name="total" th:value="${total}">
 
 
-	<span th:text="${taijyuu}" style="color:red"></span>
+
 	<br>
 	<h3>
 	総カロリーの消費運動量を測定
 	</h3>
 	<br>
 	<h2>
-	体重<input type="text" name="taijyuu" placeholder="　　　　　　　　　kg">
+	<span th:text="${taijyuu}" style="color:red"></span>
+	<br>
+	体重<input type="text" name="taijyuu" placeholder="kg">　<input type="submit" value="測定">
 	</h2>
-	<input type="submit" value="測定">
+
 	</form>
-
+<h2>
 	<br><table border="1">
-	<h2><tr>
+	<tr>
 
-	<td>測定結果</td><td></td>
+	<th>運動距離（ランニング）</th><th></th>
 	</tr>
 	<tr>
 	<td><span th:text="${kekka}"></span></td><td>km</td>
 	</tr>
-	</h2>
-</table>
 
+</table>
+</h2>
 
 
 
