@@ -43,7 +43,8 @@ h3:before {
   border-left: 10px solid transparent;
 }
 th{
-	background: #eee;
+	background:  #0075a9;
+	color: white;
 
 }
 td{

@@ -6,6 +6,30 @@ body {
 	animation: gradient 15s ease infinite;
 }
 
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -18,6 +42,28 @@ body {
   }
 }
 
+h3 {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0 1rem -10px;
+  padding: 1rem 3rem;
+  color: #fff;
+  border-radius: 0 100vh 100vh 0;
+  background: #0075a9;
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+}
+a.btn--yellow {
+  color: #000;
+  background-color: #fff100;
+  border-bottom: 5px solid #ccc100;
+}
+
+a.btn--yellow:hover {
+  margin-top: 3px;
+  color: #000;
+
+}
 #head {
 	position: relative;
 	top: 0px;
@@ -67,8 +113,8 @@ body {
 	display: inline-block;
 	padding: 0.25em 0.5em;
 	text-decoration: none;
-	color: #FFF;
-	background: #fd9535; /*色*/
+	color: #000000;
+	background: #fff100; /*色*/
 	border-radius: 4px; /*角の丸み*/
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0
 		rgba(0, 0, 0, 0.05);
@@ -83,18 +129,18 @@ body {
 
 #category1 {
 	position: relative;
-	top: 20px;
+
 	display: flex;
-	background: red;
+text-align: rigft;
 
 }
 
 #category2 {
 
 	position: relative;
-	top: 25px;
+
 	display: flex;
-	text-align: center;
+	text-align: rigft;
 }
 
 .category {
@@ -158,12 +204,18 @@ table th, table td {
 }
 
 table th {
-	background-color: #c79852;
+	background:  #0075a9;
 	color: white;
 	border: solid 1px #927141;
 }
 
 table td {
-	background-color: #e4d4bc;
+	background: #d5f4f0;
 	border: solid 1px #af9d85;
+}
+
+h4 {
+  padding: 1rem 2rem;
+  border: 6px double #000;
+  background: #d5f4f0;
 }
