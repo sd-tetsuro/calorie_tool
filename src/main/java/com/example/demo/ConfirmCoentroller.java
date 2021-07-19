@@ -3,6 +3,8 @@ package com.example.demo;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,9 +42,9 @@ public class ConfirmCoentroller {
 		List<menu> menu = menuRepository.findByDishnameAndKcalall(dishname,kcalall);
 
 
-		//Time t=Time.valueOf(LocalTime.now().toString());
+		LocalDateTime t=LocalDateTime.now();
 
-		  //SimpleDateFormat format1 = new SimpleDateFormat("h/m");
+		  DateTimeFormatter format1 = DateTimeFormatter.ofPattern("HH:mm");
 
 		Date d = Date.valueOf(LocalDate.now().toString());
 
@@ -50,9 +52,9 @@ public class ConfirmCoentroller {
 
 		 String date = format.format(d);
 
-		 //String time = format1.format(t);
+		 String time = format1.format(t);
 
-		//mv.addObject("time",t);
+		mv.addObject("time",time);
 		mv.addObject("date", d);
 		mv.addObject("dishname", dishname);
 		mv.addObject("kcalall", kcalall);

@@ -9,7 +9,7 @@
 <header th:replace="hedder">
 </header>
 
-	<h2><br>
+	<h2>
 	<span th:text="${date}"></span>　の食事カロリー
 	</h2>
 
@@ -48,9 +48,13 @@
 
 	<span th:text="${taijyuu}" style="color:red"></span>
 	<br>
+	<h3>
 	総カロリーの消費運動量を測定
+	</h3>
 	<br>
-	体重<input type="text" name="taijyuu">㎏
+	<h2>
+	体重<input type="text" name="taijyuu" placeholder="　　　　　　　　　kg">
+	</h2>
 	<input type="submit" value="測定">
 	</form>
 
