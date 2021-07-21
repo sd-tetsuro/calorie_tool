@@ -5,8 +5,11 @@
 
 
 	<header id="hedder">
-		<span th:text="(${session.login})+さんがログイン中" id="user"></span>
 
-		<a href="/myPage" class="hedder">マイページ　</a> <a href="/myMenu" class="hedder">マイメニュー　</a> <a
-			href="/kcalCal" class="hedder">メニュー登録　</a> <br><p> <a href="/login" id="logout">ログアウト</a></p>
+		<nav>
+<ul>
+		<li class="current"><a href="/myPage" class="hedder">マイページ　</a></li> <li class="current"><a href="/myMenu" class="hedder">マイメニュー　</a></li>
+		<li class="current"><a href="/userPage" class="hedder">ユーザーページ　</a></li>
+		<li class="current"><a href="/kcalCal" class="hedder">メニュー登録　</a></li>
+</ul></nav><br><span th:text="(${session.login})+さんがログイン中" id="user"></span><p><a href="/login" id="logout">ログアウト</a></p>
 </header>

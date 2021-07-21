@@ -82,20 +82,20 @@ input{
 
 #table2 {
 	position: absolute;
-	top: 295px;
-	left: 600px;
+	top: 330px;
+	left: 700px;
 	width: 500px;
 }
 #undou {
 	position: absolute;
-	top: 110px;
-	left: 600px;
+	top: 150px;
+	left: 700px;
 	width: 500px;
 }
 #taijyuu {
 	position: absolute;
-	top: 175px;
-	left: 600px;
+	top: 210px;
+	left: 700px;
 	width: 500px;
 }
 
