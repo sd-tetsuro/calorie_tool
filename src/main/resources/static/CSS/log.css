@@ -30,10 +30,17 @@ h1{
     margin-bottom: 2em;
     padding: .5em 0;
     border: none;
-    border-bottom: 1px solid #eaeaea;
     padding-bottom: 1.25em;
-    color: #757575;
+
   }
+#log{
+	 font-size: 1.3rem;
+  font-weight: 700;
+ color: #fff;
+  border-radius: 100vh 100vh 100vh 100vh;
+  background: #0075a9;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+}
 
 div{
 text-align:center;
@@ -41,5 +48,4 @@ text-align:center;
 p{
 text-align:center;
 }
-
 

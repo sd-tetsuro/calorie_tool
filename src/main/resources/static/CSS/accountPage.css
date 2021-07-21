@@ -35,6 +35,14 @@ h1{
     color: #757575;
 
   }
+  #acco{
+	 font-size: 1.3rem;
+  font-weight: 700;
+ color: #fff;
+  border-radius: 100vh 100vh 100vh 100vh;
+  background: #0075a9;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
+}
 
 div{
 text-align:right;
