@@ -38,12 +38,14 @@ public class UserInfoCoentroller {
 	@RequestMapping("/userEdit")
 	public ModelAndView userEdit(
 			ModelAndView mv) {
+
 		Integer userid = (Integer) session.getAttribute("code");
 
 		int code = userid;
 		Optional<user> record = userRepository.findById(code);
 
 		user user = record.get();
+
 
 		mv.addObject("user", user);
 		mv.setViewName("userEdit");

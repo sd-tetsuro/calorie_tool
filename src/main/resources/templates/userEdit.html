@@ -26,7 +26,11 @@
 				<td><input type="text" th:value="${user.weight}" name="weight" id="edit"></td>
 			</tr>
 			<tr>
-<td>性別</td>
+<th>性別</th>
+				<td th:if="${user.gender==null}">
+				<select name="gender">
+				<option value="1" selected>男性</option>
+				<option value="2">女性</option></select></td>
 				<td th:if="${user.gender==1}"><select name="gender">
 				<option value="1" selected>男性</option>
 				<option value="2">女性</option></select></td>
