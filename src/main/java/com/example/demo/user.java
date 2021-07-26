@@ -23,6 +23,14 @@ public class user {
 
 	@Column(name="password")
 	private String password;
+
+	private Integer weight;
+
+	private Integer height;
+
+	private Integer age;
+
+	private Integer gender;
 	public user() {
 
 	}
@@ -40,6 +48,32 @@ public class user {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+	}
+
+
+
+	public user(Integer code, String name, String email, String password, Integer weight, Integer height, Integer age) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.weight = weight;
+		this.height = height;
+		this.age = age;
+	}
+
+	public user(Integer code, String name, String email, String password, Integer weight, Integer height, Integer age,
+			Integer gender) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.weight = weight;
+		this.height = height;
+		this.age = age;
+		this.gender = gender;
 	}
 
 	public Integer getCode() {
@@ -72,6 +106,38 @@ public class user {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
+
+	public Integer getHeight() {
+		return height;
+	}
+
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public Integer getGender() {
+		return gender;
+	}
+
+	public void setGender(Integer gender) {
+		this.gender = gender;
 	}
 
 
