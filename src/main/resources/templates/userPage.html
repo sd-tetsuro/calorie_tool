@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="/CSS/userPage.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>User Page</title>
 </head>
 <body>
-<div>ユーザ情報</div>
+<header th:replace="hedder"></header>
+<h3>ユーザ情報</h3>
 
 <table>
 
@@ -27,6 +29,8 @@
 </tr>
 
 </table>
+
+<a href="/userEdit">ユーザ情報編集</a>
 
 </body>
 </html>
