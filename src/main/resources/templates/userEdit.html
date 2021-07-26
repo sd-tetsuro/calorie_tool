@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
+<link href="/CSS/userEdit.css" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>UserEdit</title>
 </head>
 <body>
-	<h1>商品更新</h1>
+	<h3>更新画面</h3>
 	<form action="/userEditComp" method="post">
 		<table border="1">
 			<tr>
-				<td>名前</td>
-				<td><input type="text" th:value="${user.name}" name="NAME"></td>
+				<th>名前</th>
+				<td><input type="text" th:value="${user.name}" name="NAME" id="edit"></td>
 			</tr>
 			<tr>
-				<td>年齢</td>
-				<td><input type="text" th:value="${user.age}" name="age"></td>
+				<th>年齢</th>
+				<td><input type="text" th:value="${user.age}" name="age" id="edit"></td>
 			</tr>
 			<tr>
-				<td>身長</td>
-				<td><input type="text" th:value="${user.height}" name="height"></td>
+				<th>身長</th>
+				<td><input type="text" th:value="${user.height}" name="height" id="edit"></td>
 			</tr>
 			<tr>
-				<td>体重</td>
-				<td><input type="text" th:value="${user.weight}" name="weight"></td>
+				<th>体重</th>
+				<td><input type="text" th:value="${user.weight}" name="weight" id="edit"></td>
 			</tr>
 			<tr>
-				<td>性別</td>
-				<td><input type="text" th:value="${user.gender}" name="gender"></td>
+				<th>性別</th>
+				<td><input type="text" th:value="${user.gender}" name="gender" id="edit"></td>
 			</tr>
 
 		</table>
-		<input type="submit" value="更新">
+		<input type="submit" value="更新" id="kousinn">
+		<a href="/userPage" class="btn btn--yellow btn--cubic">戻る</a>
 	</form>
 
 </body>
