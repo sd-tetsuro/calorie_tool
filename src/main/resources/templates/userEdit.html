@@ -26,8 +26,9 @@
 				<td><input type="text" th:value="${user.weight}" name="weight" id="edit"></td>
 			</tr>
 			<tr>
-				<th>性別</th>
-				<td><input type="text" th:value="${user.gender}" name="gender" id="edit"></td>
+<th>性別</th>
+<td th:if="${user.gender==1}" id="edit">男性</td>
+<td th:if="${user.gender==2}" id="edit">女性</td>
 			</tr>
 
 		</table>

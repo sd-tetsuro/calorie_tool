@@ -54,12 +54,14 @@ public class UserInfoCoentroller {
 	@PostMapping("/userEditComp")
 	public ModelAndView EditComp(
 			ModelAndView mv,
-			@RequestParam("NAME") String name,
-			@RequestParam("height") Integer height,
-			@RequestParam("weight") Integer weight,
-			@RequestParam("age") Integer age,
-			@RequestParam("gender") Integer gender
+			@RequestParam(name="NAME", defaultValue="") String name,
+			@RequestParam(name="height", defaultValue="0") Integer height,
+			@RequestParam(name="weight", defaultValue="0") Integer weight,
+			@RequestParam(name="age", defaultValue="0") Integer age,
+			@RequestParam(name="gender", defaultValue="0") Integer gender
 ) {
+
+		if(name!=""&&height!=0&&weight!=0&&age!=0&&gender!=0) {
 Integer code=(Integer) session.getAttribute("code");
 user user2 = (user) session.getAttribute("user");
 
@@ -68,9 +70,11 @@ String password = user2.getPassword();
 		user user = new user(code, name, email, password, height,weight,age,gender);
 		userRepository.saveAndFlush(user);
 
-
-
 		mv.setViewName("redirect:/userPage");
+		}else {
+			mv.setViewName("redirect:/userEdit");
+
+		}
 
 		return mv;
 
