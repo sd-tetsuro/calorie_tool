@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -59,11 +60,21 @@ Date d = Date.valueOf(LocalDate.now().toString());
 
 						List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
 
+						Integer userid = (Integer) session.getAttribute("code");
+
+						int code1 = userid;
+						Optional<user> record = userRepository.findById(code1);
+
+						user user1 = record.get();
+
+
 
 						int total=0;
 						for (Kcal data :cal) {
 							total +=data.getKcalall();
 						}
+
+
 
 			session.setAttribute("user", user);
 
@@ -71,7 +82,7 @@ Date d = Date.valueOf(LocalDate.now().toString());
 				String name = user.getName();
 				Integer code =user.getCode();
 
-
+				mv.addObject("user", user1);
 				session.setAttribute("login", name);
 				session.setAttribute("code", code);
 				mv.addObject("login", name);

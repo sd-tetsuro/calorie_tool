@@ -59,10 +59,12 @@ input{
 
 #table2 {
 	position: absolute;
-	top: 330px;
+	top: 500px;
 	left: 700px;
 	width: 500px;
 }
+
+
 #undou {
 	position: absolute;
 	top: 150px;
@@ -73,6 +75,6 @@ input{
 	position: absolute;
 	top: 210px;
 	left: 700px;
-	width: 500px;
+	width: 60%;
 }
 

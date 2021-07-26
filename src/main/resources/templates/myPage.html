@@ -47,13 +47,30 @@
 
 	<br>
 	<h3 id="undou">
-	総カロリーの消費運動量を測定
+	基礎代謝量を測定
 	</h3>
 	<br>
 	<h2 id="taijyuu">
 	<span th:text="${taijyuu}" style="color:red"></span>
 	<br>
-	体重<input type="text" name="taijyuu" placeholder="kg">　<input type="submit" value="測定">
+	<table border="1">
+	<tr>
+	<th>体重</th><td th:text="${user.weight}" name="weight"></td>
+	</tr>
+	<tr>
+	<th>身長</th><td th:text="${user.height}" name="height"></td>
+	</tr>
+	<tr>
+	<th>年齢</th><td th:text="${user.age}" name="age"></td>
+	</tr>
+	<tr>
+<th>性別</th>
+<td th:if="${user.gender==null}" ></td>
+<td th:if="${user.gender==1}"  name="man">男性</td>
+<td th:if="${user.gender==2}" name="woman">女性</td>
+</tr>
+	</table>
+	<input type="submit" value="測定">
 	</h2>
 
 	</form>
@@ -61,10 +78,10 @@
 	<br><table border="1" id="table2">
 	<tr>
 
-	<th>運動距離（ランニング）</th><th></th>
+	<th>基礎代謝量</th><th></th>
 	</tr>
 	<tr>
-	<td><span th:text="${kekka}"></span></td><td>km</td>
+	<td><span th:text="${kekka}"></span></td><td>kcal</td>
 	</tr>
 
 </table>
