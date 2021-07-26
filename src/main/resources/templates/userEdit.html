@@ -11,19 +11,19 @@
 		<table border="1">
 			<tr>
 				<th>名前</th>
-				<td><input type="text" th:value="${user.name}" name="NAME" id="edit"></td>
+				<td><input type="text" th:value="${user.name}" name="NAME" id="edit" ></td>
 			</tr>
 			<tr>
 				<th>年齢</th>
-				<td><input type="text" th:value="${user.age}" name="age" id="edit"></td>
+				<td><input type="number" th:value="${user.age}" name="age" id="edit" title="only number"></td>
 			</tr>
 			<tr>
 				<th>身長</th>
-				<td><input type="text" th:value="${user.height}" name="height" id="edit"></td>
+				<td><input type="number" th:value="${user.height}" name="height" id="edit" title="only number"></td>
 			</tr>
 			<tr>
 				<th>体重</th>
-				<td><input type="text" th:value="${user.weight}" name="weight" id="edit"></td>
+				<td><input type="number" th:value="${user.weight}" name="weight" id="edit" title="only number"></td>
 			</tr>
 			<tr>
 <th>性別</th>

@@ -69,7 +69,7 @@ user user2 = (user) session.getAttribute("user");
 
 String email = user2.getEmail();
 String password = user2.getPassword();
-		user user = new user(code, name, email, password, height,weight,age,gender);
+		user user = new user(code, name, email, password, weight,height,age,gender);
 		userRepository.saveAndFlush(user);
 
 		mv.setViewName("redirect:/userPage");
