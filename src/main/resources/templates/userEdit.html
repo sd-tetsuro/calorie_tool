@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>商品更新</h1>
-	<form action="/user/edit" method="post">
+	<form action="/userEditComp" method="post">
 		<table border="1">
 			<tr>
 				<td>名前</td>
@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<td>性別</td>
-				<td><input type="text" th:value="${user.sex}" name="sex"></td>
+				<td><input type="text" th:value="${user.gender}" name="gender"></td>
 			</tr>
 
 		</table>

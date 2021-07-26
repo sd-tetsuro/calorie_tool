@@ -31,9 +31,31 @@ public class user {
 	private Integer age;
 
 	private Integer gender;
-	public user() {
 
+	public user()
+	{}
+
+
+	public user(String name, Integer weight, Integer height, Integer age, Integer gender) {
+		super();
+		this.name = name;
+		this.weight = weight;
+		this.height = height;
+		this.age = age;
+		this.gender = gender;
 	}
+
+
+	public user(Integer code, String name, Integer weight, Integer height, Integer age, Integer gender) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.weight = weight;
+		this.height = height;
+		this.age = age;
+		this.gender = gender;
+	}
+
 
 	public user(Integer code, String name,  String email,String password) {
 		this.code = code;
