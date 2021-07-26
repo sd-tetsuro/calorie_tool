@@ -53,10 +53,27 @@ public class MyPageCoentroller {
 
 
 
+		Integer weight=user.getWeight();
+		Integer height=user.getHeight();
+		Integer age=user.getAge();
+		Integer gender=user.getGender();
+
 		int total=0;
 		for (Kcal data :cal) {
 			total +=data.getKcalall();
 		}
+
+		//男性： 13.397×体重kg＋4.799×身長cm−5.677×年齢+88.362
+		//女性： 9.247×体重kg＋3.098×身長cm−4.33×年齢+447.593
+if(gender==1) {
+	double kekka=13.397*weight+4.799*height-5.677*age+88.362;
+	mv.addObject("kekka",String.format("%.2f",kekka ));
+}
+else if(gender==2) {
+	double kekka=9.247*weight+3.098*height-5.677*age+447.563;
+	mv.addObject("kekka",String.format("%.2f",kekka ));
+}
+
 			mv.addObject("user", user);
 			mv.addObject("list", cal);
 			mv.addObject("date", d);
@@ -102,10 +119,26 @@ public class MyPageCoentroller {
 
 
 
+		Integer weight=user.getWeight();
+		Integer height=user.getHeight();
+		Integer age=user.getAge();
+		Integer gender=user.getGender();
+
 		int total=0;
 		for (Kcal data :cal) {
 			total +=data.getKcalall();
 		}
+
+		//男性： 13.397×体重kg＋4.799×身長cm−5.677×年齢+88.362
+		//女性： 9.247×体重kg＋3.098×身長cm−4.33×年齢+447.593
+if(gender==1) {
+	double kekka=13.397*weight+4.799*height-5.677*age+88.362;
+	mv.addObject("kekka",String.format("%.2f",kekka ));
+}
+else if(gender==2) {
+	double kekka=9.247*weight+3.098*height-5.677*age+447.563;
+	mv.addObject("kekka",String.format("%.2f",kekka ));
+}
 			mv.addObject("user", user);
 			mv.addObject("list", cal);
 			mv.addObject("date", d);
@@ -152,55 +185,10 @@ public class MyPageCoentroller {
 
 
 
-		int total=0;
-		for (Kcal data :cal) {
-			total +=data.getKcalall();
-		}
-
-			mv.addObject("user", user);
-			mv.addObject("list", cal);
-			mv.addObject("date", d);
-			mv.addObject("total", total);
-			mv.setViewName("myPage");
-			mv.setViewName("myPage");
-		}
-		else {
-
-			mv.addObject("message", "日付が未入力です。");
-
-			mv.setViewName("myPage");
-		}
-		return mv;
-	}
-
-	@RequestMapping(value = "/sokutei", method = RequestMethod.POST)
-	public ModelAndView sokutei(
-			@RequestParam("weight") int weight,
-			@RequestParam("height") int height,
-			@RequestParam("age") int age,
-			@RequestParam("gender") int gender,
-			@RequestParam("total") double Total,
-			@RequestParam("date") String date ,
-
-			ModelAndView mv) {
-
-
-
-		Date d=Date.valueOf(date);
-
-		Integer usercord = (Integer) session.getAttribute("code");
-
-		List<Kcal> cal = kcalRepository.findByDateAndUsercode(d,usercord);
-
-
-		Integer userid = (Integer) session.getAttribute("code");
-
-		int code = userid;
-		Optional<user> record = userRepository.findById(code);
-
-		user user = record.get();
-
-
+		Integer weight=user.getWeight();
+		Integer height=user.getHeight();
+		Integer age=user.getAge();
+		Integer gender=user.getGender();
 
 		int total=0;
 		for (Kcal data :cal) {
@@ -218,14 +206,23 @@ else if(gender==2) {
 	mv.addObject("kekka",String.format("%.2f",kekka ));
 }
 
-		mv.addObject("user", user);
-		mv.addObject("list", cal);
-		mv.addObject("date", d);
-		mv.addObject("total",total);
+			mv.addObject("user", user);
+			mv.addObject("list", cal);
+			mv.addObject("date", d);
+			mv.addObject("total", total);
 			mv.setViewName("myPage");
+			mv.setViewName("myPage");
+		}
+		else {
 
+			mv.addObject("message", "日付が未入力です。");
+
+			mv.setViewName("myPage");
+		}
 		return mv;
 	}
+
+
 
 	@PostMapping("/delPage")
 	public ModelAndView del(
@@ -251,10 +248,27 @@ else if(gender==2) {
 
 
 
+		Integer weight=user.getWeight();
+		Integer height=user.getHeight();
+		Integer age=user.getAge();
+		Integer gender=user.getGender();
+
 		int total=0;
 		for (Kcal data :cal) {
 			total +=data.getKcalall();
 		}
+
+		//男性： 13.397×体重kg＋4.799×身長cm−5.677×年齢+88.362
+		//女性： 9.247×体重kg＋3.098×身長cm−4.33×年齢+447.593
+if(gender==1) {
+	double kekka=13.397*weight+4.799*height-5.677*age+88.362;
+	mv.addObject("kekka",String.format("%.2f",kekka ));
+}
+else if(gender==2) {
+	double kekka=9.247*weight+3.098*height-5.677*age+447.563;
+	mv.addObject("kekka",String.format("%.2f",kekka ));
+}
+
 			mv.addObject("user", user);
 			mv.addObject("list", cal);
 			mv.addObject("date", d);

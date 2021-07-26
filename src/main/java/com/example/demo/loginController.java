@@ -67,14 +67,26 @@ Date d = Date.valueOf(LocalDate.now().toString());
 
 						user user1 = record.get();
 
-
+						Integer weight=user.getWeight();
+						Integer height=user.getHeight();
+						Integer age=user.getAge();
+						Integer gender=user.getGender();
 
 						int total=0;
 						for (Kcal data :cal) {
 							total +=data.getKcalall();
 						}
 
-
+						//男性： 13.397×体重kg＋4.799×身長cm−5.677×年齢+88.362
+						//女性： 9.247×体重kg＋3.098×身長cm−4.33×年齢+447.593
+				if(gender==1) {
+					double kekka=13.397*weight+4.799*height-5.677*age+88.362;
+					mv.addObject("kekka",String.format("%.2f",kekka ));
+				}
+				else if(gender==2) {
+					double kekka=9.247*weight+3.098*height-5.677*age+447.563;
+					mv.addObject("kekka",String.format("%.2f",kekka ));
+				}
 
 			session.setAttribute("user", user);
 
